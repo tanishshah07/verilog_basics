@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/indicus_material/verilog_at_indicus/loaded_counter_4bit/dut/main.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/indicus_material/verilog_at_indicus/loaded_counter_4bit/tb/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top

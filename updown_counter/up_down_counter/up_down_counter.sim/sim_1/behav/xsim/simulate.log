@@ -1,0 +1,16 @@
+Time resolution is 1 ps
+count is  0,reset=1,up_dwn=1,time is                    0
+count is  0,reset=0,up_dwn=1,time is                10000
+count is  1,reset=0,up_dwn=1,time is                15000
+count is  2,reset=0,up_dwn=1,time is                25000
+count is  3,reset=0,up_dwn=1,time is                35000
+count is  4,reset=0,up_dwn=1,time is                45000
+count is  5,reset=0,up_dwn=1,time is                55000
+count is  6,reset=0,up_dwn=1,time is                65000
+count is  7,reset=0,up_dwn=1,time is                75000
+count is  8,reset=0,up_dwn=1,time is                85000
+count is  9,reset=0,up_dwn=1,time is                95000
+count is 10,reset=0,up_dwn=1,time is               105000
+count is 11,reset=0,up_dwn=1,time is               115000
+count is 12,reset=0,up_dwn=1,time is               125000
+count is  0,reset=1,up_dwn=1,time is               130000

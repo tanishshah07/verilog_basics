@@ -1,0 +1,21 @@
+Time resolution is 1 ps
+count is  0,reset is 1 and time is                    0
+count is  0,reset is 0 and time is                10000
+count is  1,reset is 0 and time is                15000
+count is  2,reset is 0 and time is                25000
+count is  3,reset is 0 and time is                35000
+count is  4,reset is 0 and time is                45000
+count is  5,reset is 0 and time is                55000
+count is  6,reset is 0 and time is                65000
+count is  7,reset is 0 and time is                75000
+count is  8,reset is 0 and time is                85000
+count is  9,reset is 0 and time is                95000
+count is 10,reset is 0 and time is               105000
+count is 11,reset is 0 and time is               115000
+count is 12,reset is 0 and time is               125000
+count is 13,reset is 0 and time is               135000
+count is 14,reset is 0 and time is               145000
+count is 15,reset is 0 and time is               155000
+count is  0,reset is 0 and time is               165000
+count is  1,reset is 0 and time is               175000
+$finish called at time : 180 ns : File "E:/indicus_material/verilog_at_indicus/4-bit_binary_counter/tb/tb.v" Line 37
