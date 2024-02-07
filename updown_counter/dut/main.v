@@ -25,12 +25,14 @@ module main (output reg [3:0] count,input wire up_dwn,input wire reset,input wir
 always@(posedge clk,posedge reset) begin
  if(up_dwn==1'b1) begin
 	 if(reset) count<=4'd0;
+	 else if(count==4'hb) count<=4'd0;
 	 else begin
 		 count<=count+1'b1;
 	end
 end
 else if(up_dwn==1'b0) begin
  if(reset) count<=4'hf;
+ else if(count==4'd3) count<=4'hf;
  else begin
   count<=count-1'b1;
  end

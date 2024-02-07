@@ -13,4 +13,8 @@ count is  9,reset=0,up_dwn=1,time is                95000
 count is 10,reset=0,up_dwn=1,time is               105000
 count is 11,reset=0,up_dwn=1,time is               115000
 count is 12,reset=0,up_dwn=1,time is               125000
-count is  0,reset=1,up_dwn=1,time is               130000
+count is  0,reset=0,up_dwn=1,time is               135000
+count is  1,reset=0,up_dwn=1,time is               145000
+count is  2,reset=0,up_dwn=1,time is               155000
+count is  3,reset=0,up_dwn=1,time is               165000
+$finish called at time : 170 ns : File "E:/indicus_material/verilog_at_indicus/updown_counter/tb/tb.v" Line 39
