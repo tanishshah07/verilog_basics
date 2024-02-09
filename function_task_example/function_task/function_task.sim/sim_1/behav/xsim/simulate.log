@@ -1,0 +1,12 @@
+Time resolution is 1 ps
+X is 1
+Y is 1
+X is 1
+Y is 1
+X is 0
+Y is 1
+X is 1
+Y is 0
+X is 1
+Y is 0
+$finish called at time : 100 ns : File "E:/indicus_material/verilog_at_indicus/function_task_example/tb/tb.v" Line 40

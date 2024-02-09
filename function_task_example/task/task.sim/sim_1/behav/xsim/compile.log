@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/indicus_material/verilog_at_indicus/function_task_example/dut/main_task.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_task
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/indicus_material/verilog_at_indicus/function_task_example/tb/tb_task.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_task

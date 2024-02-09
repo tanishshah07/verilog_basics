@@ -22,7 +22,7 @@
 
 module main(output [3:0]count,input wire reset,input wire clk);
 reg [3:0] count;
-always@(posedge clk,posedge reset) begin
+always@(posedge clk,posedge reset) begin //Asynchronous reset
  if(reset)
   count<=4'd0;
  else

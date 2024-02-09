@@ -18,4 +18,8 @@ count is 14,reset is 0 and time is               145000
 count is 15,reset is 0 and time is               155000
 count is  0,reset is 0 and time is               165000
 count is  1,reset is 0 and time is               175000
-$finish called at time : 180 ns : File "E:/indicus_material/verilog_at_indicus/4-bit_binary_counter/tb/tb.v" Line 37
+count is  2,reset is 0 and time is               185000
+count is  3,reset is 0 and time is               195000
+count is  4,reset is 0 and time is               205000
+count is  0,reset is 1 and time is               210000
+$finish called at time : 220 ns : File "E:/indicus_material/verilog_at_indicus/4-bit_binary_counter/tb/tb.v" Line 39
