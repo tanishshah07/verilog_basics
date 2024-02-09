@@ -22,17 +22,17 @@
 
 module main (output reg [3:0] count,input wire up_dwn,input wire reset,input wire clk);
 
-always@(posedge clk,posedge reset) begin
+always@(posedge clk,posedge reset) begin //asynchronous reset
  if(up_dwn==1'b1) begin
 	 if(reset) count<=4'd0;
-	 else if(count==4'hb) count<=4'd0;
+	 else if(count==4'hb) count<=4'd0; //for modulo 12 counter
 	 else begin
 		 count<=count+1'b1;
 	end
 end
 else if(up_dwn==1'b0) begin
  if(reset) count<=4'hf;
- else if(count==4'd3) count<=4'hf;
+ else if(count==4'd4) count<=4'hf;  // for modulo 12 counter
  else begin
   count<=count-1'b1;
  end

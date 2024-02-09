@@ -1,0 +1,5 @@
+Time resolution is 1 ps
+X is 1
+y is 0
+Hello this is function inside a task
+$finish called at time : 130 ns : File "E:/indicus_material/verilog_at_indicus/function_task_example/dut/main_task.v" Line 52

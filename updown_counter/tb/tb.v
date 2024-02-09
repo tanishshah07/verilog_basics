@@ -18,7 +18,13 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+///--------------------------------test cases we are covering -----------------------------\\\\\\
+//--->>reset the counter in both the cases(up & down)
+//--->>Back to Back up_down High and Low
+//--->>Checking Down Counting
+//--->>Checking Up Counting
+//--->>Reset Priority
+//
 
 module tb();
 reg clk,up_dwn,reset;
@@ -30,18 +36,32 @@ initial begin
  clk=0;
  reset=1;
  up_dwn=1;
- #10;
+ @(negedge clk);
  reset=0;
- #120;
+ @(negedge clk);
  reset=1;
- //up_dwn=0;//for down counting
- #10;
+ up_dwn=0;
+ repeat(5) @(negedge clk);
+ reset=0;
+ repeat(15) @(negedge clk);
+ reset=1;
+ @(negedge clk);
+ reset=0;
+ up_dwn=1;
+ repeat(15) @(negedge clk);
+ up_dwn=0;
+ @(negedge clk);
+ up_dwn=1;
+ repeat(5) @(negedge clk);
+ 
+
+
  $finish;
 
 end
 
-initial forever #5 clk=~clk;
-initial $monitor("count is %d,reset=%d,up_dwn=%d,time is %t",count,reset,up_dwn,$time);
+initial forever #5 clk=~clk; // clock generation
+initial $monitor("count is %d,reset=%d,up_dwn=%d,time is %t",count,reset,up_dwn,$time); //monitoring the counter
 
 
 endmodule
