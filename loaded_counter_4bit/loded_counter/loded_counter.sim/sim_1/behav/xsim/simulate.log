@@ -6,12 +6,20 @@ the count is  2 , load is 0,data is  0 at time                35000
 the count is  3 , load is 0,data is  0 at time                45000
 the count is  4 , load is 0,data is  0 at time                55000
 the count is  5 , load is 0,data is  0 at time                65000
-the count is  5 , load is 1,data is 11 at time                70000
-the count is 11 , load is 1,data is 11 at time                75000
-the count is 11 , load is 0,data is 11 at time                80000
-the count is 12 , load is 0,data is 11 at time                85000
-the count is 13 , load is 0,data is 11 at time                95000
-the count is 14 , load is 0,data is 11 at time               105000
-the count is 15 , load is 0,data is 11 at time               115000
-the count is  0 , load is 0,data is 11 at time               125000
-$finish called at time : 130 ns : File "E:/indicus_material/verilog_at_indicus/loaded_counter_4bit/tb/tb.v" Line 25
+the count is  5 , load is 1,data is  9 at time                70000
+the count is  9 , load is 1,data is  9 at time                75000
+the count is  9 , load is 0,data is  9 at time                80000
+the count is 10 , load is 0,data is  9 at time                85000
+the count is 11 , load is 0,data is  9 at time                95000
+the count is 12 , load is 0,data is  9 at time               105000
+the count is 13 , load is 0,data is  9 at time               115000
+the count is 14 , load is 0,data is  9 at time               125000
+the count is 14 , load is 1,data is 14 at time               130000
+the count is 14 , load is 0,data is 14 at time               140000
+the count is 15 , load is 0,data is 14 at time               145000
+the count is  0 , load is 0,data is 14 at time               155000
+the count is  1 , load is 0,data is 14 at time               165000
+the count is  2 , load is 0,data is 14 at time               175000
+the count is  3 , load is 0,data is 14 at time               185000
+$finish called at time : 190 ns : File "E:/indicus_material/verilog_at_indicus/loaded_counter_4bit/tb/tb.v" Line 27
+Memory in use : 7712 KB (peak memory: 7712 KB)     CPU usage : 46 ms

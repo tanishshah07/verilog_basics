@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/indicus_material/verilog_at_indicus/Decoder10X1024/dut/main.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main
+WARNING: [VRFC 10-3380] identifier 'IN' is used before its declaration [E:/indicus_material/verilog_at_indicus/Decoder10X1024/dut/main.v:23]
+WARNING: [VRFC 10-3380] identifier 'OUT' is used before its declaration [E:/indicus_material/verilog_at_indicus/Decoder10X1024/dut/main.v:24]
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/indicus_material/verilog_at_indicus/Decoder10X1024/tb/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
