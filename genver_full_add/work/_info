@@ -1,0 +1,70 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/indicus_material/verilog_at_indicus/genver_full_add
+vadder
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 mQ9VVN1Y=mJMGen@cGFHl3
+IB<k@l24EiL`L6fJ<Ro:Zn0
+R0
+w1707887992
+8adder.v
+Fadder.v
+L0 1
+Z2 OL;L;10.7c;67
+31
+Z3 !s108 1707888280.000000
+Z4 !s107 adder.v|full_adder.v|tb.v|
+Z5 !s90 -reportprogress|300|tb.v|
+!i113 0
+Z6 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 tCvgOpt 0
+vfull_adder
+R1
+r1
+!s85 0
+!i10b 1
+!s100 dcfCzSBC0IN2fM;N9nH0W0
+IVOZ21N0kMOLQFaY<k8[VY2
+R0
+w1707888230
+8full_adder.v
+Ffull_adder.v
+L0 1
+R2
+31
+R3
+R4
+R5
+!i113 0
+R6
+R7
+vtop
+R1
+r1
+!s85 0
+!i10b 1
+!s100 cMe@i4CCAiSdzYW3G?fMG3
+IV>SJ94:GgBBbNjYB6TVS13
+R0
+w1707888269
+8tb.v
+Ftb.v
+L0 4
+R2
+31
+R3
+R4
+R5
+!i113 0
+R6
+R7

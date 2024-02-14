@@ -1,0 +1,51 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dE:/indicus_material/verilog_at_indicus/2task_at_same_time
+vmain
+!s110 1707907613
+!i10b 1
+!s100 _eQDY8L=<cDd29lA]bk2d1
+IR_QhL?LfZ[jN8;9YV4k>o3
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 dE:/indicus_material/verilog_at_indicus/Random_value_generate
+w1707907003
+8main.v
+Fmain.v
+L0 1
+Z2 OL;L;10.7c;67
+r1
+!s85 0
+31
+!s108 1707907613.000000
+!s107 main.v|
+!s90 -reportprogress|300|main.v|
+!i113 0
+Z3 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z4 tCvgOpt 0
+vmain_odd
+R0
+r1
+!s85 0
+!i10b 1
+!s100 P8^7]LALK@6>JF7Y2CYj^1
+Iz>D6z`ELM7OZ80FebMP3W1
+R1
+w1707908776
+8main_odd.v
+Fmain_odd.v
+L0 1
+R2
+31
+!s108 1707908781.000000
+!s107 main_odd.v|
+!s90 -reportprogress|300|main_odd.v|
+!i113 0
+R3
+R4

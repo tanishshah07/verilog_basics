@@ -22,6 +22,7 @@
 
 module main(input wire clk,input wire load,input wire rstn,input wire [5:0] data_in,output wire data_out);
 parameter TP=5;
+parameter WIDTH=6;
 reg out;
 integer count;
 assign data_out=out;
@@ -30,7 +31,7 @@ begin
  if (!rstn) out<=1'b0;
 
  else begin
-  if(load) count<=TP*data_in;
+  if(load) count<=TP*data_in;  //as 5 Hz Clock
 
   else begin
    if (count>1) begin
