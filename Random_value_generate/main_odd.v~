@@ -13,7 +13,7 @@ for(i=0;i<NUM;i=i+1) begin
   if(a%2==0) begin
    a=LOWR+{$random}%(UPPR-LOWR);
   end
-  $display("the value is %D",a);
+  else $display("the value is %D",a);
  end
 end
 endmodule
