@@ -24,34 +24,42 @@ module digital_clock(input wire clk,input wire rstn,output [2:0] min,sec,output 
 reg [3:0] hrs_temp;
 reg [2:0] min_temp;
 reg [2:0] sec_temp;
-
+integer count;
 assign  hrs = hrs_temp;
 assign min = min_temp;
 assign sec = sec_temp;
 
-//initial {hrs_temp,min_temp,sec_temp}=10'd0;
-
+parameter MAX_COUNT=10;
+parameter MAX_SEC=6;
+parameter MAX_HRS=12;
+initial count=0;
 always@(posedge clk,negedge rstn) begin
- if(!rstn){hrs_temp,min_temp,sec_temp}=10'hc_0_0;
+ if(!rstn){hrs_temp,min_temp,sec_temp}=10'd0;
  else begin
-	 if(sec_temp<3'd6) begin
-	  repeat(10) @(negedge clk);
-	  sec_temp<=sec_temp+1'b1;
-         end
+  count<=count+1;
+  if (count==MAX_COUNT) begin
+   sec_temp<=sec_temp+1'b1;
+   count<=0;
+  end
 
-	 else if (min_temp<3'd6) begin
-	  min_temp<=min_temp+1'b1;
-	  sec_temp<=3'b0;
-	 end
+  if (sec_temp==(MAX_SEC-1) && count==MAX_COUNT) begin
+   min_temp<=min_temp+1'b1;
+   sec_temp<=3'd0;
+  end
 
-	 else if (hrs_temp<4'd12) begin
+  if (min_temp==(MAX_SEC-1) && sec_temp==(MAX_SEC-1) && count==MAX_COUNT) begin
 	  hrs_temp<=hrs_temp+1'b1;
-	  min_temp<=3'd0;
-	 end
-	 else begin
-	  {hrs_temp,min_temp,sec_temp}=10'hc_0_0;
-	 end
+	  min_temp<=3'b0;
+  end
+
+  if(hrs_temp==(MAX_HRS-1) && min_temp==(MAX_SEC-1) && sec_temp==(MAX_SEC-1) && count==MAX_COUNT)begin
+		 hrs_temp<=4'b0;
+		 min_temp<=3'b0;
+		 sec_temp<=3'b0;
+  end
  end
 end
 
 endmodule
+
+

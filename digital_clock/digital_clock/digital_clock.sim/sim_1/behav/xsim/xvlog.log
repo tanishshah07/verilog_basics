@@ -1,6 +1,4 @@
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/indicus_material/verilog_at_indicus/digital_clock/dut/digital_clock.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module digital_clock
-WARNING: [VRFC 10-8497] literal value 'hc_0_0 truncated to fit in 10 bits [E:/indicus_material/verilog_at_indicus/digital_clock/dut/digital_clock.v:35]
-WARNING: [VRFC 10-8497] literal value 'hc_0_0 truncated to fit in 10 bits [E:/indicus_material/verilog_at_indicus/digital_clock/dut/digital_clock.v:53]
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/indicus_material/verilog_at_indicus/digital_clock/tb/tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module tb
