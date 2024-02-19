@@ -6,15 +6,53 @@ module top();
 reg [7:0]a;
 reg [7:0]b;
 reg cin;
-wire [7:0] cout;
+wire cout;
 wire [7:0] sum;
+//--------------------Self_checking_variables-----------------
+reg [7:0] sum_exp;
+reg count_exp;
+//------------------------------------------------------------
 
 full_adder dut(.sum(sum),.cout_out(cout),.a(a),.b(b),.cin(cin));
 initial begin
- a=8'b1010_1110;
- b=8'b1100_0011;
+repeat(4) begin
+ a={$random}%10;
+ b={$random}%10;
  cin=1'b0;
+  $display(a,$time);
+  $display(b,$time);
  #10;
+ end
+ #100;
  $finish;
 end
+
+//----------MIMICING_THE_DESIGN-------------------------------
+always@(a,b,cin) begin
+ {count_exp,sum_exp}=a+b+cin;
+end
+//------------------------------------------------------------
+
+
+//---------CHECKERS-------------------------------------------
+
+initial begin
+	forever@(sum,cout) begin
+		#1;
+ if (sum_exp==sum) begin
+  $display("the SUM TEST PASSED!!!! @ ",$time);
+ end 
+ else $display("the SUM test id FAILED!!! @",$time);
+ end
+end
+//-------------------------------------------------------------
+always@(cout,sum) begin
+	#1;
+	if(count_exp==cout) begin
+		$display("the CARRY TEST PASSED!!!! @ ",$time);
+	end
+	else $display("the CARRY test id FAILED!!! @",$time);
+end
+//-------------------------------------------------------------
+
 endmodule
