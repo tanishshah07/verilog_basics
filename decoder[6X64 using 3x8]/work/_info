@@ -1,0 +1,70 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/indicus_material/verilog_at_indicus/decoder[6X64 using 3x8]
+vdeco
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 GRlcRNJV[;hGU_QRb?VTg0
+I5fAo9iXiUocXPa5HRm>Ki1
+R0
+w1708448998
+8decoder.v
+Fdecoder.v
+L0 1
+Z2 OL;L;10.7c;67
+31
+Z3 !s108 1708450071.000000
+Z4 !s107 bigdeco.v|decoder.v|tb.v|
+Z5 !s90 -reportprogress|300|tb.v|
+!i113 0
+Z6 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 tCvgOpt 0
+vdecoder
+R1
+r1
+!s85 0
+!i10b 1
+!s100 6GVgQZi@YGHTbWlSzL_4D0
+ISj>jD1N<f5aDmANX^[M=40
+R0
+w1708449046
+8bigdeco.v
+Fbigdeco.v
+L0 1
+R2
+31
+R3
+R4
+R5
+!i113 0
+R6
+R7
+vtop
+R1
+r1
+!s85 0
+!i10b 1
+!s100 TJ1T3;jazXkYVkghf^=kR2
+IFW?zBFF0^OLMOmzh5c_aN2
+R0
+w1708449002
+8tb.v
+Ftb.v
+L0 4
+R2
+31
+R3
+R4
+R5
+!i113 0
+R6
+R7

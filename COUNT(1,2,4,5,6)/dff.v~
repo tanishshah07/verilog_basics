@@ -1,0 +1,9 @@
+module dff(output reg q,input wire d,input wire rst,input clk);
+ always@(posedge clk,posedge rst) begin
+  if(rst)
+	  q<=0;
+  else
+	  q<=d;
+ 
+ end
+endmodule

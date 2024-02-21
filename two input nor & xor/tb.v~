@@ -1,0 +1,21 @@
+`include "main.v"
+
+module top();
+reg a,b,c;
+wire out;
+main dut(.a(a),.b(b),.c(c),.out(out));
+
+initial begin
+ {a,b,c}=3'd6;
+ #1;
+ {a,b,c}=3'd0;
+ #1;
+ {a,b,c}=3'd7;
+ #1;
+
+ {a,b,c}=3'd3;
+ #1;
+ $finish;
+end
+
+endmodule

@@ -1,0 +1,70 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/indicus_material/verilog_at_indicus/COUNT(1,2,4,5,6)
+vdff
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 g?Zf?G9<MlG0YKU_ZYRlK3
+IMKj8MIA81OIMdCf=;J>X03
+R0
+w1708451696
+8dff.v
+Fdff.v
+L0 1
+Z2 OL;L;10.7c;67
+31
+Z3 !s108 1708451706.000000
+Z4 !s107 main.v|dff.v|tb.v|
+Z5 !s90 -reportprogress|300|tb.v|
+!i113 0
+Z6 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 tCvgOpt 0
+vmain
+R1
+r1
+!s85 0
+!i10b 1
+!s100 ][5boa=k2PTTz^Nm9giCe1
+IiR;9f[663c;T`]=cCUikG3
+R0
+w1708451691
+8main.v
+Fmain.v
+L0 1
+R2
+31
+R3
+R4
+R5
+!i113 0
+R6
+R7
+vtop
+R1
+r1
+!s85 0
+!i10b 1
+!s100 H7Kz:k92=<TL^NIN<8B>n2
+I@nF3a^L4lA74X@@@F[Beo1
+R0
+w1708450374
+8tb.v
+Ftb.v
+L0 3
+R2
+31
+R3
+R4
+R5
+!i113 0
+R6
+R7

@@ -1,0 +1,18 @@
+module encoder(in,out);
+parameter MX=8;
+parameter MO=3;
+
+input wire [MX-1:0] in;
+output reg [MO-1:0] out;
+
+always@(*) begin
+ if (in[0]) out<=8'd0;
+ else if (in[1]) out<=8'd1;
+ else if (in[2]) out<=8'd2;
+ else if (in[3]) out<=8'd3;
+ else if (in[4]) out<=8'd4;
+ else if (in[5]) out<=8'd5;
+ else if (in[6]) out<=8'd6;
+ else if (in[7]) out<=8'd7;
+end
+endmodule

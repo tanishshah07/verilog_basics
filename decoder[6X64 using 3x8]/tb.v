@@ -1,0 +1,36 @@
+`include "decoder.v"
+`include "bigdeco.v"
+
+module top();
+reg [5:0] in;
+wire [63:0] out;
+integer i;
+reg [63:0] out_exp;
+decoder dut(.in(in),.out(out));
+initial begin
+#1;
+ for(i=0;i<64;i=i+1) begin
+  in=i;
+  #1;
+ end
+ $finish;
+end
+
+//-----MImicing--the--design------------------
+always@(in) begin
+  out_exp={64{1'b0}};
+  out_exp[in]=1'b1;
+end
+//---------------------------------------------
+
+//----------checker----------------------------
+
+always@(out,out_exp) begin
+ if (out_exp==out) $display("the DECODER TEST IS PASSED!!!! @ %t",$time);
+ else  $display("the DECODER TEST IS FAILED!!!! @ %t",$time);
+
+//------------------------------------------------
+
+end
+
+endmodule

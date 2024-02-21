@@ -1,0 +1,27 @@
+`include "encoder.v"
+module top();
+parameter MX_IN=8,MX_OUT=3;
+reg [MX_IN-1:0] in;
+wire [MX_OUT-1:0] out;
+
+encoder dut(.out(out),.in(in));
+initial begin
+in=8'b1111_1111;
+#10;
+in=8'b1111_1110;
+#10;
+in=8'b1111_1100;
+#10;
+in=8'b1111_1000;
+#10;
+in=8'b1111_0000;
+#10;
+in=8'b1110_0000;
+#10;
+in=8'b1100_0000;
+#10;
+in=8'b1000_0000;
+#10;
+end
+endmodule
+
