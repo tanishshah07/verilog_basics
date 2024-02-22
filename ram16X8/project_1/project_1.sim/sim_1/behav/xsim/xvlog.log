@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/indicus_material/verilog_at_indicus/ram16X8/ram_16x8.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/indicus_material/verilog_at_indicus/ram16X8/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ram
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'ram' [E:/indicus_material/verilog_at_indicus/ram16X8/ram_16x8.v:7]
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/indicus_material/verilog_at_indicus/ram16X8/project_1/project_1.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

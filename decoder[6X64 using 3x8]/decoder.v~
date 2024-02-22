@@ -5,7 +5,7 @@ module deco(input [2:0] in,
 
 always@(in) begin
   out={8{1'b0}};
- if (posedge ena) begin
+ if (ena) begin
   out[in]=1'b1;
  end
 end
