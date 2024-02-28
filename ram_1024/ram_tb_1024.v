@@ -30,6 +30,8 @@ write(10'd0,{$random},4);
 read(10'd2,4);
 write(10'd78,64'h78_ac_d0_90_56_78_90_12,4);
 read(10'd78,4);
+write(10'd143,{$random},8);
+read(10'd143,8);
 repeat(10) @(negedge clk);
 $finish;
 end

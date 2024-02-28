@@ -73,7 +73,7 @@ task read(input [ADDR_WIDTH-1:0] add,input integer by);
 	    //str(by,strobe);
 	    cs=1'b1;
 	    wr_enb=1'b0;
-	    repeat(by) @(negedge clk);
+	    repeat(7) @(negedge clk);
 	end
 endtask
 
