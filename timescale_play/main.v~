@@ -1,4 +1,4 @@
-`timescale 100ns/1ns
+`timescale 100ns/1ps
 module main();
 reg clk,clk2;
 parameter TP=4;

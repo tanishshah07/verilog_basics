@@ -1,0 +1,60 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Feb 22 13:51:54 2024
+# Process ID: 13208
+# Current directory: E:/indicus_material/verilog_at_indicus/ram16X8/project_1/project_1.runs/synth_1
+# Command line: vivado.exe -log ram.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ram.tcl
+# Log file: E:/indicus_material/verilog_at_indicus/ram16X8/project_1/project_1.runs/synth_1/ram.vds
+# Journal file: E:/indicus_material/verilog_at_indicus/ram16X8/project_1/project_1.runs/synth_1\vivado.jou
+# Running On: DESKTOP-MFBPDIV, OS: Windows, CPU Frequency: 2304 MHz, CPU Physical cores: 2, Host memory: 4196 MB
+#-----------------------------------------------------------
+source ram.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 376.531 ; gain = 57.855
+Command: synth_design -top ram -part xck26-sfvc784-2LV-c
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 11868
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/vivado/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:12 ; elapsed = 00:00:27 . Memory (MB): peak = 816.055 ; gain = 414.633
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ram' [E:/indicus_material/verilog_at_indicus/ram16X8/ram_16x8.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ram' (0#1) [E:/indicus_material/verilog_at_indicus/ram16X8/ram_16x8.v:7]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:17 ; elapsed = 00:00:40 . Memory (MB): peak = 907.086 ; gain = 505.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:42 . Memory (MB): peak = 907.086 ; gain = 505.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xck26-sfvc784-2LV-c
+INFO: [Synth 8-6742] Reading net delay rules and data
+INFO: [Device 21-403] Loading part xck26-sfvc784-2LV-c
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:42 . Memory (MB): peak = 907.086 ; gain = 505.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:43 . Memory (MB): peak = 907.086 ; gain = 505.664
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 17    
++---Muxes : 
+	   2 Input    1 Bit        Muxes := 16    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------

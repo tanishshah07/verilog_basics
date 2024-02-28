@@ -16,8 +16,12 @@ reset();
 in=1;
 @(negedge clk);
 in=0;
-//@(negedge clk);
+@(negedge clk);
+@(negedge clk);
+
 //test case 1 (111)
+in=1;
+@(negedge clk);
 in=1;
 @(negedge clk);
 in=1;

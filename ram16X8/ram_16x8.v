@@ -3,7 +3,8 @@
 //RAM 16x8
 `define ADDR_WIDTH 4
 `define DEPTH 16
-`define DATA_WIDTH 8 
+`define DATA_WIDTH 8
+`define TP 10
 module ram (clk,
             rst,
             wr_enb,

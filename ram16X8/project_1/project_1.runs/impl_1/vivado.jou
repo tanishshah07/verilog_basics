@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Sat Feb 24 19:08:33 2024
+# Process ID: 5528
+# Current directory: E:/indicus_material/verilog_at_indicus/ram16X8/project_1/project_1.runs/impl_1
+# Command line: vivado.exe -log ram.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source ram.tcl -notrace
+# Log file: E:/indicus_material/verilog_at_indicus/ram16X8/project_1/project_1.runs/impl_1/ram.vdi
+# Journal file: E:/indicus_material/verilog_at_indicus/ram16X8/project_1/project_1.runs/impl_1\vivado.jou
+# Running On: DESKTOP-MFBPDIV, OS: Windows, CPU Frequency: 2304 MHz, CPU Physical cores: 2, Host memory: 4196 MB
+#-----------------------------------------------------------
+source ram.tcl -notrace

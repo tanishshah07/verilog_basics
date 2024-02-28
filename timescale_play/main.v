@@ -1,4 +1,5 @@
-`timescale 100ns/1ps
+//`timescale 1ns/1ps  //clk1
+`timescale 100ns/1ps //for clk2
 module main();
 reg clk,clk2;
 parameter TP=4;

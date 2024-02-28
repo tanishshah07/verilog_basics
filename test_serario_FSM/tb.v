@@ -26,6 +26,9 @@ in=1;
 @(negedge clk);
 in=1;
 @(negedge clk);
+@(negedge clk);
+in=1;
+@(negedge clk);
 
 // test case 2(01)
 

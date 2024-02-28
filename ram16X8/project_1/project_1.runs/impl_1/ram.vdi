@@ -1,0 +1,54 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Sat Feb 24 19:08:33 2024
+# Process ID: 5528
+# Current directory: E:/indicus_material/verilog_at_indicus/ram16X8/project_1/project_1.runs/impl_1
+# Command line: vivado.exe -log ram.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source ram.tcl -notrace
+# Log file: E:/indicus_material/verilog_at_indicus/ram16X8/project_1/project_1.runs/impl_1/ram.vdi
+# Journal file: E:/indicus_material/verilog_at_indicus/ram16X8/project_1/project_1.runs/impl_1\vivado.jou
+# Running On: DESKTOP-MFBPDIV, OS: Windows, CPU Frequency: 2304 MHz, CPU Physical cores: 2, Host memory: 4196 MB
+#-----------------------------------------------------------
+source ram.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:22 . Memory (MB): peak = 375.918 ; gain = 58.348
+Command: link_design -top ram -part xck26-sfvc784-2LV-c
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xck26-sfvc784-2LV-c
+WARNING: [Device 21-9] Clock region file  is not available
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1416.613 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 44 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+CRITICAL WARNING: [Device 21-2168] Failed to load clock programmable delays in NTD flow
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1416.613 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 20 instances were transformed.
+  IBUF => IBUF (IBUFCTRL, INBUF): 20 instances
+
+6 Infos, 1 Warnings, 1 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:19 ; elapsed = 00:02:02 . Memory (MB): peak = 1416.613 ; gain = 1035.473
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xck26'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1462.543 ; gain = 45.930
+
+Starting Cache Timing Information Task
+Ending Cache Timing Information Task | Checksum: a2b7ef9c
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.524 . Memory (MB): peak = 1462.543 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+11 Infos, 1 Warnings, 1 Critical Warnings and 1 Errors encountered.
+opt_design failed
+ERROR: [Common 17-577] Internal error: Cannot run timing on a non-timing device
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 24 19:12:01 2024...

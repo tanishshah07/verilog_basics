@@ -1,0 +1,140 @@
+/* clk is for read and write
+   write signal for if write : logic 1 then is write operation
+                    if write : logic 0 then is read operation
+   address in 10 bits [9:0]  : first 3 bit [2:0] for colum
+		             : other 5 bit [7:3] for row
+   data_in have 64 bit [63:0]
+   strobe have 8 bit [7:0]   : if 8 then no masking
+                             : if 4 then masking with 011111111
+			       _______________	   
+	   wr_enb --->|		          |
+			      |	              |<------reset_n
+	  data_in---->|		          |
+	        	  |    1KB RAM    |<----- strobe[7:0]
+	  addr[9:0]-->|		          |
+       			  |		          |
+  data_in[63:0]-->|		          |----->data_out[63:0]
+		       	  |	              |
+	  clk-------->|_______________|
+					
+						   */
+		      
+module RAM_1K( clk,cs,wr_enb,addr,data_in,data_out,strobe,rst_n );
+
+     parameter ADDR_WIDTH = 10,
+               DATA_WIDTH = 64,
+	       DEAPTH = 128,
+	       STROBE_WIDTH = 8;
+
+  input wire clk; //clk
+  input  cs; // chip select
+  input  wr_enb; //write enable 
+  input  rst_n;
+  input  [(ADDR_WIDTH-1):0] addr; //addrress
+  input  [(DATA_WIDTH-1):0] data_in; //data_in 
+  output reg [(DATA_WIDTH-1):0] data_out; //data output
+  input wire [(STROBE_WIDTH-1):0] strobe; //strobe
+  logic [7:0][0:7] mem [0:(DEAPTH-1)];
+  logic [7:0] mem_out [0:7];
+  int i,j,g,k,wr_count,rd_count; // index for forech
+  logic [2:0] colum;
+  logic [6:0] row;
+  logic [7:0] data_temp;
+  
+  //when reset 
+  always@(posedge clk)
+     begin:always_loop
+	 if(cs)
+	    begin:chip_select
+	    if(!rst_n)
+	        begin:reset
+		    data_out <= 64'b0;
+		    wr_count <= 0;	
+		    rd_count <= 0;
+		    foreach(mem[i,j])
+			begin
+			   mem[i][j] <= 8'b0;
+			end
+		end:reset
+	    else
+		begin:op_wr_rd
+		    colum = addr[2:0]; //take address from first 3 bit LSB [2:0]
+		    row = addr>>3; //take address from last 5 bit from MSB [9:3]
+		    if(wr_count == 0)
+		       wr_count = colum; //when read enb is high then colum load in read_counter
+		    if(rd_count== 0)
+		       rd_count = colum;  //if write operation wr_enb high then colum data load in counter
+					
+		    if(wr_enb)
+		       begin:wr_op
+			  //if(wr_count == 0)
+			    //wr_count <= colum; //when read enb is high then colum load in read_counter				
+			  if(wr_count < 8)    //if count is less then 8 then data write in memory and ++
+			     begin:write_counter
+			         if(i<8)
+				   i <= i+1;
+				 wr_count <= wr_count + 1; // counter ++  wr_count*8+7 : wr_count*8  7:0 15:8
+				 mem[row][wr_count] <= ({<<{data_in[(i*8)+:8]}} & {8{strobe[i]}}); //memory data write
+				 $display($time," write wr_count : %0d write data_temp : %0d",wr_count,data_temp); 
+			     end:write_counter
+			  else
+			     wr_count <= 0; //if write count to 8 or wr_count>8 wr_count 0 
+		             i=0;
+		       end:wr_op
+		    //read operation
+		    else if(!wr_enb)
+		       begin:rd_op
+			  //if(rd_count == 0)
+			    //rd_count <= colum;  //if write operation wr_enb high then colum data load in counter
+			  if(rd_count < 8) // if count is less then 8 then data read from memory and ++
+			     begin:read_counter
+				// mem_out[rd_count] = mem[row][rd_count]; // read from memory
+				if(j<8)
+				  j <= j+1;
+				data_out[(j*8)+:8] = ({<<{mem[row][rd_count]}} & {8{strobe[j]}}); // read from memory=
+				$display($time," read rd_count : %0d strobe : %8b",rd_count,{8{strobe[rd_count]}}); 
+				//rd_count <= rd_count + 1; // counter ++ 
+				rd_count <= rd_count + 1; // counter ++ 
+				//data_out = {<<{mem_out}}; // streaming
+		 	     end:read_counter
+		          else
+			     begin:rd_count_reset
+				rd_count <= 0; //if read counter to 8 or rd_count>8  rd_count = 0
+				j=0;
+			     end:rd_count_reset
+		      end:rd_op
+		end:op_wr_rd
+	 end:chip_select
+     end:always_loop 
+endmodule
+
+/* 		 else 
+			begin
+				colum <= addr[2:0]; //take address from first 3 bit LSB [2:0]
+				// row <= addr>>3; //take address from last 5 bit from MSB [9:3]
+				row <= addr[9:3]; //take address from last 5 bit from MSB [9:3]
+				//write operation
+				if(wr_enb)
+				begin	
+					// mem[9:3][2:0] = data_in;
+					for(g=colum;g<8;g++) ////for loop for read address from starting point of user to upper limit
+						begin
+							@(posedge clk);
+							mem[row][g] <= data_in[(g*8)+:8]; //(data_in[(i+8):i]) but this not vaild both side
+							$display($time, " write g : %0d",g);
+						end
+				end
+				//read operation
+				else
+				begin
+					for(k=colum;k<8;k++)  //for loop for read address from starting point of user to upper limit
+						begin
+							@(posedge clk);
+							mem_out[k] <= mem[row][k];   // store data of mem_out when read operation
+							$display($time, " read k : %0d",g);
+ 						end
+							data_out = {>>{mem_out}};   //here striming data in single var. data_out
+				end
+			end */		
+     
+
