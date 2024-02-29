@@ -14,7 +14,7 @@ r1
 !s85 0
 !i10b 1
 !s100 `M1RNSoPbhg7Cg[__BTok2
-IlQ=MVbC=_><I1]=alXI@X2
+IF;kY6h_K;Mo``hBB:LYYN2
 Z1 dE:/indicus_material/verilog_at_indicus/test_serario_FSM
 w1708347246
 8main.v
@@ -22,21 +22,22 @@ Fmain.v
 L0 1
 Z2 OL;L;10.7c;67
 31
-Z3 !s108 1708686866.000000
-Z4 !s107 main.v|tb.v|
-Z5 !s90 -reportprogress|300|tb.v|
+Z3 !s108 1709182470.000000
+Z4 !s107 tb.v|main.v|
+Z5 !s90 -reportprogress|300|-coveropt|3|+acc|+cover|main.v|tb.v|
 !i113 0
-Z6 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z7 tCvgOpt 0
+Z6 !s102 -coveropt 3 +cover
+Z7 o-coveropt 3 +acc +cover -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 tCvgOpt 0
 vtop
 R0
 r1
 !s85 0
 !i10b 1
-!s100 Xl;5:XNEdhWAERFT;kcM73
-IQoFzXo;Enm97c7>7DIO0V3
+!s100 ]mmX]FX0GbdX7YNd7UaY72
+IkkdC;SH<U4k6KS06I<AfT2
 R1
-w1708686799
+w1708687040
 8tb.v
 Ftb.v
 L0 3
@@ -48,3 +49,4 @@ R5
 !i113 0
 R6
 R7
+R8

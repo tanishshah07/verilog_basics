@@ -1,0 +1,46 @@
+module fileop(clk,wr,rst,data_out);
+parameter DW=8,
+	  AW=4,
+	  DEP=16;
+input wire          clk,wr,rst;       
+output reg [DW-1:0] data_out;
+
+reg [DW-1:0] mem [0:DEP-1];
+reg [AW-1:0] addrs [4:0];
+reg [DW-1:0] datas [4:0];
+reg [DW-1:0] data_outs [4:0];
+integer i,j,k,out;
+
+initial begin
+{i,j,k}=0;
+$readmemb("input.txt",addrs);
+$readmemb("input_data.txt",datas);
+out=$fopen("output.txt","w");
+end
+always@(posedge clk) begin
+  if(rst) begin
+    for(i=0;i<16;i=i+1) begin
+      mem[i]=8'd0;
+    end
+  end
+  else begin
+	  if (wr) begin
+		  mem[addrs[j]]<=datas[j];
+		  j=j+1;
+	  end
+	  else begin
+	   data_outs[k]<=mem[addrs[k]];
+	   k=k+1;
+          end
+
+  end
+end
+always@(k) begin
+	if (k==7) begin
+	 for(i=0;i<5;i=i+1) begin
+	  $fdisplay(out,data_outs[i]);
+	 end
+	 $fclose(out);
+	end
+end
+endmodule

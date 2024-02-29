@@ -1,0 +1,60 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/indicus_material/verilog_at_indicus/ROC
+T_opt
+!s110 1709185310
+VjE]QJKTD`o[G1Yk58LB4n0
+04 6 4 work roc_tb fast 0
+=1-c85b76258d3a-65e0191e-1b6-19b0
+o-quiet -auto_acc_if_foreign -work work +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;10.7c;67
+R0
+vroc
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 JTkGZgi^6P3EVbdPg91693
+IdoMUT3A_@K[KVP[He1zYB2
+R0
+w1709191878
+8roc.v
+Froc.v
+L0 1
+Z3 OL;L;10.7c;67
+31
+Z4 !s108 1709191883.000000
+Z5 !s107 roc.v|roc_tb.v|
+Z6 !s90 -reportprogress|300|roc_tb.v|
+!i113 0
+Z7 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vroc_tb
+R2
+r1
+!s85 0
+!i10b 1
+!s100 UP>IRBMl;P]^cSz_jmzQH3
+IF<bn^cMYH]egOCHDR5KhP1
+R0
+w1709191757
+8roc_tb.v
+Froc_tb.v
+L0 2
+R3
+31
+R4
+R5
+R6
+!i113 0
+R7
+R1

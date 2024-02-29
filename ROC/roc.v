@@ -1,0 +1,34 @@
+module roc(wr,clk,rst,data,addr,data_out);
+parameter DW=8,
+	  AW=4,
+	  DEP=16;
+input wire          clk,wr,rst;       
+input wire [DW-1:0] data;
+input wire [AW-1:0] addr;
+output reg [DW-1:0] data_out;
+
+reg [DW-1:0] mem [0:DEP-1];
+reg flag;
+integer i;
+always@(posedge clk) begin
+	if (rst) begin
+	 for(i=0;i<16;i=i+1) begin
+	  mem[i]<=8'd0;
+	 end
+	end
+	if(wr) begin
+	        mem[addr]<=data;
+		flag<=1'b0;
+	end
+	else if (!wr) begin
+		if (flag) begin 
+		  data_out<=8'd0;
+		  mem[addr]<=8'd0;
+		end
+	       else begin	       
+		 data_out<=mem[addr];
+		 flag<=1'b1;
+	       end
+	end	
+end
+endmodule

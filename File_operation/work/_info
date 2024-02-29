@@ -1,0 +1,81 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/indicus_material/verilog_at_indicus/File_operation
+T_opt
+!s110 1709197367
+VJ8m46F`RzYAZkEJR:Q^IV2
+Z1 04 6 4 work fileop fast 0
+=1-c85b76258d3a-65e04837-11d-1554
+o-quiet -auto_acc_if_foreign -work work
+Z2 tCvgOpt 0
+n@_opt
+Z3 OL;O;10.7c;67
+R0
+T_opt1
+!s110 1709200314
+V;0FcJk[Q4cS^mgdAfeAKh3
+R1
+=1-c85b76258d3a-65e053ba-5e-2b34
+Z4 o-quiet -auto_acc_if_foreign -work work +acc
+R2
+n@_opt1
+R3
+R0
+T_opt2
+!s110 1709201203
+VGRSD6O8eQFEmCWZ_8mMK`0
+04 9 4 work fileop_tb fast 0
+=1-c85b76258d3a-65e05733-2a-3e5c
+R4
+R2
+n@_opt2
+R3
+vfileop
+Z5 !s110 1709201193
+!i10b 1
+!s100 :@1;n9JbL^gGVF08`KWJN1
+IUkLhe]^EPFOCTK^ZHT[ZU1
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1709201180
+8fileop.v
+Ffileop.v
+L0 1
+Z7 OL;L;10.7c;67
+r1
+!s85 0
+31
+Z8 !s108 1709201193.000000
+Z9 !s107 fileop.v|fileop_tb.v|
+Z10 !s90 -reportprogress|300|fileop_tb.v|
+!i113 0
+Z11 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vfileop_tb
+R5
+!i10b 1
+!s100 KLPKHS9lH50>;:b=1c5@V1
+I[lRlL8i8D]LizLLK<KO8_3
+R6
+R0
+w1709201020
+8fileop_tb.v
+Ffileop_tb.v
+L0 2
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R2

@@ -24,7 +24,7 @@ RAM_1K dut(.clk(clk),
 initial forever #(TP/2) clk=~clk;
 
 initial begin
-clk=1'b0;
+clk=1'b1;
 reset();
 write(10'd0,{$random},4);
 read(10'd2,4);
@@ -32,6 +32,8 @@ write(10'd78,64'h78_ac_d0_90_56_78_90_12,4);
 read(10'd78,4);
 write(10'd143,{$random},8);
 read(10'd143,8);
+write(10'd77,{$random},4);
+read(10'd77,4);
 repeat(10) @(negedge clk);
 $finish;
 end
