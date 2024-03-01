@@ -11,6 +11,7 @@ reg  [DATA_WIDTH-1:0]   data_in;
 wire [DATA_WIDTH-1:0]   data_out;
 reg  [STROBE_WIDTH-1:0] strobe;
 integer i,x;
+integer seed=123;
 RAM_1K dut(.clk(clk),
 	   .cs(cs),
 	   .wr_enb(wr_enb),
@@ -25,8 +26,18 @@ initial forever #(TP/2) clk=~clk;
 
 initial begin
 clk=1'b1;
-reset();
-write(10'd0,{$random},4);
+seed=1;
+reset();  // initial reset
+write(10'd0,{$random(seed)},8); //extreme cases
+read(10'd0,8);
+write(10'h3f8,{$random},8);
+read(10'h3f8,8);
+//------------------------------------------------
+
+
+
+
+write(10'd0,{$random},4); //write at address & read from different address(bug)
 read(10'd2,4);
 write(10'd78,64'h78_ac_d0_90_56_78_90_12,4);
 read(10'd78,4);

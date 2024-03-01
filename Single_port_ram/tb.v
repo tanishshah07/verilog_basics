@@ -18,7 +18,13 @@ clk=0;
 reset(); ///reset_INITIAL
 //=-----------Extreme_Cases-----------------------------------------------
 write(1'b1,6'd0,16'hffff);
+@(negedge clk);
+$display("the back door access%h",dut.mem[0]);
+dut.mem[0]=16'd0;                                     // Accesing Memory through Back_door READ & WRITE on it 
+wr=1'b0;
+$display("the back door access%h",dut.mem[0]);
 read(1'b0,6'd0);
+
 write(1'b1,6'd63,16'd0);
 read(1'b0,6'd63);
 //------------------------------------------------------------------------
@@ -49,8 +55,6 @@ read(1'b0,{$random}%64);
 //------------------------------------
 write(1'b0,6'd17,16'hf0f0);  
 read(1'b1,6'd17);
-
-
 $finish;
 end
 //----------------------------------------------------------------
