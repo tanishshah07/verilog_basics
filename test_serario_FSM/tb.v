@@ -2,14 +2,16 @@
 
 module top();
 reg clk,rst,in;
-wire p,c,out;
+wire p,c;
 
 main dut(.p(p),.c(c),.clk(clk),.rst(rst),.in(in));
 
 initial forever #5 clk=~clk;
 
 initial begin
+rst=1'b0;
 clk=0;
+@(negedge clk);
 reset();
 
 // test case 4(10)
@@ -54,7 +56,13 @@ in=1;
 in=1;
 @(negedge clk);
 in=0;
-
+//test for default
+dut.state=3'd5;
+in=1'b1;
+@(negedge clk);
+dut.state=3'd5;
+in=1'b0;
+@(negedge clk);
 repeat(10) @(negedge clk);
 $finish;
 

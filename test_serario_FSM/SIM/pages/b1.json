@@ -1,0 +1,62 @@
+var g_data = {
+b3:[{dummy:0},
+{anchor:'cvg12',items:[{z:'	if (rst) begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'7',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'	if (rst) begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'7',h:'2',c:'g'}
+,{cr:'c',t:'E',z:'	else begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'13',h:'29',c:'g'}
+]},
+{anchor:'cvg13',items:[{z:'	case(state)',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'15',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'		NO_COIN: begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'16',h:'8',c:'g'}
+,{cr:'c',t:'T',z:'		RS1 : begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'22',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'		RS2 : begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'28',h:'7',c:'g'}
+,{cr:'c',t:'T',z:'		PRODUCT : begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'34',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'		CHANGE : begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'40',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'		default : begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'46',h:'3',c:'g'}
+]},
+{anchor:'cvg14',items:[{z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'17',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'17',h:'4',c:'g'}
+,{cr:'c',t:'E',z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'17',h:'4',c:'g'}
+]},
+{anchor:'cvg15',items:[{z:'		 state&lt;=in ? RS2 : PRODUCT;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'23',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'		 state&lt;=in ? RS2 : PRODUCT;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'23',h:'2',c:'g'}
+,{cr:'c',t:'E',z:'		 state&lt;=in ? RS2 : PRODUCT;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'23',h:'2',c:'g'}
+]},
+{anchor:'cvg16',items:[{z:'		 state&lt;= in ? PRODUCT : CHANGE;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'29',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'		 state&lt;= in ? PRODUCT : CHANGE;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'29',h:'3',c:'g'}
+,{cr:'c',t:'E',z:'		 state&lt;= in ? PRODUCT : CHANGE;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'29',h:'4',c:'g'}
+]},
+{anchor:'cvg17',items:[{z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'47',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'47',h:'1',c:'g'}
+,{cr:'c',t:'E',z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'47',h:'1',c:'g'}
+]}],
+b11:[{dummy:0},
+{anchor:'cvg12',items:[{z:'	if (rst) begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'7',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'	if (rst) begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'7',h:'2',c:'g'}
+,{cr:'c',t:'E',z:'	else begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'13',h:'29',c:'g'}
+]},
+{anchor:'cvg13',items:[{z:'	case(state)',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'15',c:'G',p:'100.00'}
+,{cr:'c',t:'T',z:'		NO_COIN: begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'16',h:'8',c:'g'}
+,{cr:'c',t:'T',z:'		RS1 : begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'22',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'		RS2 : begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'28',h:'7',c:'g'}
+,{cr:'c',t:'T',z:'		PRODUCT : begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'34',h:'4',c:'g'}
+,{cr:'c',t:'T',z:'		CHANGE : begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'40',h:'3',c:'g'}
+,{cr:'c',t:'T',z:'		default : begin',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'46',h:'3',c:'g'}
+]},
+{anchor:'cvg14',items:[{z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'17',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'17',h:'4',c:'g'}
+,{cr:'c',t:'E',z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'17',h:'4',c:'g'}
+]},
+{anchor:'cvg15',items:[{z:'		 state&lt;=in ? RS2 : PRODUCT;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'23',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'		 state&lt;=in ? RS2 : PRODUCT;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'23',h:'2',c:'g'}
+,{cr:'c',t:'E',z:'		 state&lt;=in ? RS2 : PRODUCT;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'23',h:'2',c:'g'}
+]},
+{anchor:'cvg16',items:[{z:'		 state&lt;= in ? PRODUCT : CHANGE;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'29',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'		 state&lt;= in ? PRODUCT : CHANGE;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'29',h:'3',c:'g'}
+,{cr:'c',t:'E',z:'		 state&lt;= in ? PRODUCT : CHANGE;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'29',h:'4',c:'g'}
+]},
+{anchor:'cvg17',items:[{z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'47',c:'G',p:'100.00'}
+,{cr:'c',t:'I',z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'47',h:'1',c:'g'}
+,{cr:'c',t:'E',z:'		 state&lt;=in? RS1 : RS2;',hf:'__HDL_srcfile_2.htm',f:'main.v',l:'47',h:'1',c:'g'}
+]}],
+dummyEnd:0
+};
+processBranchesData(g_data);

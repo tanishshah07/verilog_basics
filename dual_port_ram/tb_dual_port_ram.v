@@ -63,7 +63,7 @@ for(i=0;i<32;i=i+1) begin
  read_b(i);
 end
 //-------------Same_address_write(ERROR)--------------------------------
-/*
+
 fork
  write_a(5'd12,4'd12);
  write_b(5'd12,4'd7);
@@ -72,7 +72,7 @@ fork
  read_a(5'd12);
  read_b(5'd12);
 join
-*/
+
 
 //-----------------------In_Between_reset()-----------------------
 for(i=0;i<32;i=i+1) begin
@@ -112,12 +112,6 @@ repeat(10) @(negedge clk1);
 $finish;
 end
 //-------------------------------------------------------------------
-
-
-
-
-
-
 
 //--------------------------Tasks---------------------------------------------
 task write_a(input [WID_A-1:0] addr,input [WID_D-1:0] data);

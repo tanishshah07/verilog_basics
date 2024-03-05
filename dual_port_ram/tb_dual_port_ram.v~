@@ -76,7 +76,9 @@ join
 
 //-----------------------In_Between_reset()-----------------------
 for(i=0;i<32;i=i+1) begin
-	if(i==23) reset();
+	if(i==23) begin
+	  reset();
+	end
 	else begin
           write_a(i,{$random}%16);
           read_b(i);
@@ -93,7 +95,19 @@ end
 end
 */
 //------------------------------------------------------------
-//------------------------------------------------------------------
+//---------------------------------------------------------------
+//-----------------------In_Between_Enable_lOw----------------------
+for(i=0;i<32;i=i+1) begin
+	if(i==12) begin
+	  wra=1'b0;
+	  wrb=1'b1;
+	end
+	else begin
+          write_a(i,{$random}%16);
+          read_b(i);
+ end
+end
+
 repeat(10) @(negedge clk1);
 $finish;
 end

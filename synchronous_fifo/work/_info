@@ -1,0 +1,63 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/indicus_material/verilog_at_indicus/synchronous_fifo
+T_opt
+!s110 1709558064
+V1e75iFUFmRSYhC08bJQW^3
+04 7 4 work fifo_tb fast 0
+=1-c85b76258d3a-65e5c930-73-157c
+o-quiet -auto_acc_if_foreign -work work -suppress 12110
+Z1 tCvgOpt 0
+n@_opt
+OL;O;10.7c;67
+vfifo_tb
+Z2 !s110 1709558059
+!i10b 1
+!s100 @_254ONbYEXMU?X:<1IJW0
+Io@PQnT_^1T[2fNUOBnNkL1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1709557668
+8fifo_tb.v
+Ffifo_tb.v
+L0 2
+Z4 OL;L;10.7c;67
+r1
+!s85 0
+31
+Z5 !s108 1709558059.000000
+Z6 !s107 fifo_tb.v|sync_fifo.v|
+Z7 !s90 -reportprogress|300|-coveropt|3|+acc|+cover|sync_fifo.v|fifo_tb.v|
+!i113 0
+Z8 !s102 -coveropt 3 +cover
+Z9 o-coveropt 3 +acc +cover -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vsync_fifo
+R2
+!i10b 1
+!s100 J@eRIAB`?mcKPiNl<In3g3
+Ido9<3Pl3OnPcAM@ke:^K23
+R3
+R0
+w1709558035
+8sync_fifo.v
+Fsync_fifo.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 0
+R8
+R9
+R1
