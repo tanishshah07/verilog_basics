@@ -3,5 +3,5 @@ var g_data = {'dummy':{null},
 'work.main':{h:'3',s:1,b:1,f:1,t:1,z:1},
 '/top/dut':{h:'11',s:1,b:1,f:1,t:1,z:1},
 '/top':{h:'4',s:1,t:1,z:1},
-'work.top::reset':{h:'36',s:1,z:1},
+'work.top::reset':{h:'35',s:1,z:1},
 'work.top':{h:'2',s:1,t:1,z:1}};

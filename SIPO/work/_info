@@ -1,0 +1,50 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/indicus_material/verilog_at_indicus/SIPO
+vsipo
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 P7W_Uc6VoB7hkNHiM?XKg2
+I[WTn:D4iVfCaaK`i`Q6IK1
+R0
+w1709728424
+8sipo.v
+Fsipo.v
+L0 1
+Z2 OL;L;10.7c;67
+31
+Z3 !s108 1709813465.000000
+Z4 !s107 sipo_tb.v|sipo.v|
+Z5 !s90 -reportprogress|300|sipo.v|sipo_tb.v|
+!i113 0
+Z6 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 tCvgOpt 0
+vsipo_tb
+R1
+r1
+!s85 0
+!i10b 1
+!s100 KlLTcUfzIVA3RenSY<n4E1
+ImHFCW9fEgO?UVl_O0GCQT2
+R0
+w1709813461
+8sipo_tb.v
+Fsipo_tb.v
+L0 2
+R2
+31
+R3
+R4
+R5
+!i113 0
+R6
+R7

@@ -1,5 +1,5 @@
 # Compilation.....
-vlog -coveropt 3 +acc +cover main.v tb.v 
-vsim -vopt -coverage top -suppress 12110
-add wave -position insertpoint sim:/top/dut/*
+vlog sync_fifo.v fifo_tb.v 
+vsim -novopt fifo_tb -suppress 12110 +FULL_TEST +TEST_5
+add wave -position insertpoint sim:/fifo_tb/dut/*
 run -all

@@ -2,21 +2,20 @@ var g_data = {
 f3:{
 scopes:[{link:'z.htm?f=0&s=3',val:'work.main'}]
 ,FSMs:[{dummy:0}
-,{anchor:'cvg18',items:[{c:'G',p:'90.00',lnk:'__HDL_srcfile_2.htm#16',z:'state'}
-,{cr:'c',s:'1',z:'NO_COIN',h:'9',c:'g'}
-,{cr:'c',z:'NO_COIN -&gt; RS2',h:'4',c:'g'}
-,{cr:'c',z:'NO_COIN -&gt; RS1',h:'4',c:'g'}
-,{cr:'c',s:'1',z:'RS2',h:'7',c:'g'}
-,{cr:'c',z:'RS2 -&gt; CHANGE',h:'4',c:'g'}
+,{anchor:'cvg17',items:[{c:'G',p:'100.00',lnk:'__HDL_srcfile_2.htm#18',z:'state'}
+,{cr:'c',s:'1',z:'NO_COIN',h:'20',c:'g'}
+,{cr:'c',z:'NO_COIN -&gt; RS2',h:'6',c:'g'}
+,{cr:'c',z:'NO_COIN -&gt; RS1',h:'5',c:'g'}
+,{cr:'c',s:'1',z:'RS2',h:'8',c:'g'}
+,{cr:'c',z:'RS2 -&gt; CHANGE',h:'3',c:'g'}
 ,{cr:'c',z:'RS2 -&gt; PRODUCT',h:'3',c:'g'}
-,{cr:'m',z:'RS2 -&gt; NO_COIN',h:'0',c:'r'}
 ,{cr:'c',s:'1',z:'RS1',h:'5',c:'g'}
 ,{cr:'c',z:'RS1 -&gt; PRODUCT',h:'2',c:'g'}
-,{cr:'c',z:'RS1 -&gt; RS2',h:'3',c:'g'}
-,{cr:'m',z:'RS1 -&gt; NO_COIN',h:'0',c:'r'}
+,{cr:'c',z:'RS1 -&gt; RS2',h:'2',c:'g'}
+,{cr:'c',z:'RS1 -&gt; NO_COIN',h:'1',c:'g'}
 ,{cr:'c',s:'1',z:'PRODUCT',h:'5',c:'g'}
-,{cr:'c',z:'PRODUCT -&gt; NO_COIN',h:'4',c:'g'}
-,{cr:'c',s:'1',z:'CHANGE',h:'4',c:'g'}
+,{cr:'c',z:'PRODUCT -&gt; NO_COIN',h:'5',c:'g'}
+,{cr:'c',s:'1',z:'CHANGE',h:'3',c:'g'}
 ,{cr:'c',z:'CHANGE -&gt; NO_COIN',h:'3',c:'g'}
 ]}
 
@@ -25,21 +24,20 @@ scopes:[{link:'z.htm?f=0&s=3',val:'work.main'}]
 f11:{
 scopes:[{s:'4',b:'1',val:'top'},{link:'z.htm?f=0&s=11',val:'dut'}]
 ,FSMs:[{dummy:0}
-,{anchor:'cvg18',items:[{c:'G',p:'90.00',lnk:'__HDL_srcfile_2.htm#16',z:'state'}
-,{cr:'c',s:'1',z:'NO_COIN',h:'9',c:'g'}
-,{cr:'c',z:'NO_COIN -&gt; RS2',h:'4',c:'g'}
-,{cr:'c',z:'NO_COIN -&gt; RS1',h:'4',c:'g'}
-,{cr:'c',s:'1',z:'RS2',h:'7',c:'g'}
-,{cr:'c',z:'RS2 -&gt; CHANGE',h:'4',c:'g'}
+,{anchor:'cvg17',items:[{c:'G',p:'100.00',lnk:'__HDL_srcfile_2.htm#18',z:'state'}
+,{cr:'c',s:'1',z:'NO_COIN',h:'20',c:'g'}
+,{cr:'c',z:'NO_COIN -&gt; RS2',h:'6',c:'g'}
+,{cr:'c',z:'NO_COIN -&gt; RS1',h:'5',c:'g'}
+,{cr:'c',s:'1',z:'RS2',h:'8',c:'g'}
+,{cr:'c',z:'RS2 -&gt; CHANGE',h:'3',c:'g'}
 ,{cr:'c',z:'RS2 -&gt; PRODUCT',h:'3',c:'g'}
-,{cr:'m',z:'RS2 -&gt; NO_COIN',h:'0',c:'r'}
 ,{cr:'c',s:'1',z:'RS1',h:'5',c:'g'}
 ,{cr:'c',z:'RS1 -&gt; PRODUCT',h:'2',c:'g'}
-,{cr:'c',z:'RS1 -&gt; RS2',h:'3',c:'g'}
-,{cr:'m',z:'RS1 -&gt; NO_COIN',h:'0',c:'r'}
+,{cr:'c',z:'RS1 -&gt; RS2',h:'2',c:'g'}
+,{cr:'c',z:'RS1 -&gt; NO_COIN',h:'1',c:'g'}
 ,{cr:'c',s:'1',z:'PRODUCT',h:'5',c:'g'}
-,{cr:'c',z:'PRODUCT -&gt; NO_COIN',h:'4',c:'g'}
-,{cr:'c',s:'1',z:'CHANGE',h:'4',c:'g'}
+,{cr:'c',z:'PRODUCT -&gt; NO_COIN',h:'5',c:'g'}
+,{cr:'c',s:'1',z:'CHANGE',h:'3',c:'g'}
 ,{cr:'c',z:'CHANGE -&gt; NO_COIN',h:'3',c:'g'}
 ]}
 

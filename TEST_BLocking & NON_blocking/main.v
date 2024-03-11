@@ -1,0 +1,41 @@
+module main(clk,rst,count,flag);
+input wire clk,rst;
+output reg [3:0] count;
+output reg flag;
+
+
+//with non-blocking
+/*
+always@(posedge clk) begin
+ if (rst) begin
+  count<=0;
+  flag<=1'b0;
+ end
+ else begin
+  count<=count+1'b1;
+  flag<=1'b0;
+  if(count==13) begin
+   count<=0;
+   flag<=1'b1;
+  end
+ end
+end
+*/
+
+// with blocking 
+always@(posedge clk) begin
+ if (rst) begin
+  count=0;
+  flag=1'b0;
+ end
+ else begin
+  count=count+1'b1;
+  flag=1'b0;
+  if(count==13) begin
+   count=0;
+   flag=1'b1;
+  end
+ end
+end
+
+endmodule

@@ -1,0 +1,50 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/indicus_material/verilog_at_indicus/piso
+vpiso
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 T^oV;W>]]9e3`_mLcB]bK2
+IFaiMIe2RAFnjJkDg1m1OU0
+R0
+w1709873879
+8piso.v
+Fpiso.v
+L0 1
+Z2 OL;L;10.7c;67
+31
+Z3 !s108 1709874272.000000
+Z4 !s107 piso_tb.v|piso.v|
+Z5 !s90 -reportprogress|300|piso.v|piso_tb.v|
+!i113 0
+Z6 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 tCvgOpt 0
+vpiso_tb
+R1
+r1
+!s85 0
+!i10b 1
+!s100 dba19OW[P8F0Y7VWO[;nJ1
+Ib2k@4KP:U<>SM_;HB:dhl1
+R0
+w1709874263
+8piso_tb.v
+Fpiso_tb.v
+L0 1
+R2
+31
+R3
+R4
+R5
+!i113 0
+R6
+R7

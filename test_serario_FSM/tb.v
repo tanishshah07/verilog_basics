@@ -22,6 +22,7 @@ in=0;
 @(negedge clk);
 
 //test case 1 (111)
+reset();
 in=1;
 @(negedge clk);
 in=1;
@@ -33,22 +34,25 @@ in=1;
 @(negedge clk);
 
 // test case 2(01)
-
+reset();
 in=0;
 @(negedge clk);
 in=1;
 @(negedge clk);
 
 // test case 3(00)
+reset();
 in=0;
 @(negedge clk);
 in=0;
 // test case 4(10)
+reset();
 in=1;
 @(negedge clk);
 in=0;
 @(negedge clk);
 // test case 5(110)
+reset();
 in=1;
 @(negedge clk);
 in=1;

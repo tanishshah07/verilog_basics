@@ -2,7 +2,7 @@
 
 module top();
 reg clk,rst,in;
-wire p,c,out;
+wire p,c;
 
 main dut(.p(p),.c(c),.clk(clk),.rst(rst),.in(in));
 
