@@ -6,9 +6,9 @@ parameter DEP=8,
 reg      [WID-1:0] data_in;
 reg                clk,wr,rd,rstn;
 wire     [WID-1:0] data_out;
-wire               full,empty;
+wire               full,empty,hf;
 integer i,seed;
-sync_fifo dut(.clk(clk),.wr(wr),.rd(rd),.rstn(rstn),.data_in(data_in),.data_out(data_out),.full(full),.empty(empty));
+sync_fifo dut(.clk(clk),.wr(wr),.rd(rd),.rstn(rstn),.data_in(data_in),.data_out(data_out),.full(full),.empty(empty),.hf(hf));
 initial forever #(TP/2) clk=~clk;
 
 initial begin
@@ -16,13 +16,30 @@ clk=1'b1;
 if ($test$plusargs("FULL_TEST")) begin
  reset();
  dinR(8);
- rd=1'b1;
+ data_read(8);
  repeat(10) @(negedge clk);
 end
 if($test$plusargs("TEST_5")) begin
  //reset();
  dinR(5);
- wr=1'b0;
+ data_read(8);   //it should not give the previous value?
+ repeat(10) @(negedge clk);
+end
+if($test$plusargs("FULL_2")) begin
+ reset();
+ dinR(8);
+ data_read(8);
+ dinR(8);
+ data_read(8);
+ repeat(10) @(negedge clk);
+end
+
+if($test$plusargs("mix_read_write")) begin
+ //reset();
+ dinR(6);
+ data_read(3);
+ dinR(5);
+ data_read(4);
  repeat(10) @(negedge clk);
 end
 $finish;
@@ -34,6 +51,7 @@ task reset();
   rstn=1'b0;
   rd=1'b0;
   wr=1'b0;
+  seed=123;
   @(negedge clk);
   rstn=1'b1;
  end
@@ -55,6 +73,7 @@ task data_read(input integer n);
 		@(negedge clk);
 		rd=1'b1;
 		repeat(n) @(negedge clk);
+		rd=1'b0;
 
 	end
 endtask
