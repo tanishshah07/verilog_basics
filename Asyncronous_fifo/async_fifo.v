@@ -9,11 +9,12 @@ output wire          hf,uf,of;
 
 reg [DW:0] w_ptr,r_ptr,gw_ptr,gr_ptr,g_sycw,g_sycr; //internal variable pointer and syncronizer
 reg [DW-1:0] fifo [0:DEP-1]; //fifo declaration
-integer j,i;
+reg [4:0] i;
+reg signed [2:0] j;
 reg hfw,hfr; //internal half flag
 always@(posedge wclk,negedge rstn) begin  //write logicc
  if(!rstn) begin
-  {w_ptr,r_ptr,data_out,full,empty}=8'b0000_0001;
+  {w_ptr,r_ptr,data_out,full,empty}=8'b0000_0000;
   for(i=0;i<DEP;i=i+1) begin
    fifo[i]<=4'd0;
   end
@@ -28,7 +29,7 @@ end
 
 always@(posedge rclk,negedge rstn) begin //read logic
  if(!rstn) begin
-  {w_ptr,r_ptr,data_out,full,empty}=8'b0000_0001;
+  {w_ptr,r_ptr,data_out,full,empty}=8'b0000_0000;
   for(i=0;i<DEP;i=i+1) begin
    fifo[i]<=4'd0;
   end
@@ -42,7 +43,7 @@ always@(posedge rclk,negedge rstn) begin //read logic
 end
 
 always@(posedge wclk) begin:wr_handler  //write syncronizer
-  reg [DW-1:0] temp,g_ptr,g1;
+  reg [DW:0] temp,g_ptr,g1;
   gw_ptr<=b2g(w_ptr);
   //gr_ptr<=b2g(r_ptr);
   temp<=gr_ptr;
@@ -76,12 +77,12 @@ end
 
 always@(r_ptr,g_sycw) begin  //empty logic
 	if(r_ptr==g_sycw) begin
-		empty=1'b1;
+	 empty=1'b1;
 	end
- else empty=1'b0;
+        else empty=1'b0;
  if(r_ptr[DW-1:0]-g_sycw[DW-1:0]==(DEP/2)-1) hfw=1'b1;
   else hfw=1'b0;
- if(r_ptr[DW-1:0]-g_sycw[DW-1:0]==2 && !empty) ame=1'b1;
+ if(r_ptr[DW-1:0]-g_sycw[DW-1:0]==13 && !empty) ame=1'b1;
   else ame=1'b0;
 
 end
@@ -93,7 +94,7 @@ always@(w_ptr,g_sycr) begin  //full logic
   else full=1'b0;
   if(w_ptr[DW-1:0]-g_sycr[DW-1:0]==(DEP/2)-1) hfr=1'b1;
    else hfr=1'b0;
-  if(w_ptr[DW-1:0]-g_sycr[DW-1:0]==2 && !full) amf=1'b1;
+  if(w_ptr[DW-1:0]-g_sycr[DW-1:0]==13 && !full) amf=1'b1;
   else amf=1'b0;
 end
 

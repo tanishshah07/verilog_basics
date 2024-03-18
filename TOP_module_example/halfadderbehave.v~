@@ -1,0 +1,9 @@
+module HF(s,c,a,b);
+input wire a,b;
+output wire s,c;
+assign s=sd;
+assign c=cd;
+always @(a or b) begin
+	{cd,sd}=a+b;
+end
+endmodule

@@ -19,123 +19,124 @@
 <a name="9"><q-n>     9  </q-n></a>
 <a name="10"><q-n>     10  </q-n></a><q-w>reg</q-w> [DW:0] w_ptr,r_ptr,gw_ptr,gr_ptr,g_sycw,g_sycr; <q-m>//internal variable pointer and syncronizer</q-m>
 <a name="11"><q-n>     11  </q-n></a><q-w>reg</q-w> [DW-1:0] fifo [0:DEP-1]; <q-m>//fifo declaration</q-m>
-<a name="12"><q-n>     12  </q-n></a><q-w>integer</q-w> j,i;
-<a name="13"><q-n>     13  </q-n></a><q-w>reg</q-w> hfw,hfr; <q-m>//internal half flag</q-m>
-<a name="14"><q-n>     14  </q-n></a><q-w>always</q-w>@(<q-a>posedge</q-w> wclk,<q-a>negedge</q-w> rstn) <q-w>begin</q-w>  <q-m>//write logicc</q-m>
-<a name="15"><q-n>     15  </q-n></a> <q-w>if</q-w>(!rstn) <q-w>begin</q-w>
-<a name="16"><q-n>     16  </q-n></a>  {w_ptr,r_ptr,data_out,full,empty}=8'b0000_0001;
-<a name="17"><q-n>     17  </q-n></a>  <q-w>for</q-w>(i=0;i&lt;DEP;i=i+1) <q-w>begin</q-w>
-<a name="18"><q-n>     18  </q-n></a>   fifo[i]&lt;=4'd0;
-<a name="19"><q-n>     19  </q-n></a>  <q-w>end</q-w>
-<a name="20"><q-n>     20  </q-n></a> <q-w>end</q-w>
-<a name="21"><q-n>     21  </q-n></a> <q-w>else</q-w> <q-w>begin</q-w>
-<a name="22"><q-n>     22  </q-n></a>  <q-w>if</q-w>(w_en &amp;&amp; !full) <q-w>begin</q-w>
-<a name="23"><q-n>     23  </q-n></a>    fifo[w_ptr[DW-1:0]]&lt;=data_in;
-<a name="24"><q-n>     24  </q-n></a>    w_ptr&lt;=w_ptr+1'b1;  
-<a name="25"><q-n>     25  </q-n></a>  <q-w>end</q-w>
-<a name="26"><q-n>     26  </q-n></a> <q-w>end</q-w>
-<a name="27"><q-n>     27  </q-n></a><q-w>end</q-w>
-<a name="28"><q-n>     28  </q-n></a>
-<a name="29"><q-n>     29  </q-n></a><q-w>always</q-w>@(<q-a>posedge</q-w> rclk,<q-a>negedge</q-w> rstn) <q-w>begin</q-w> <q-m>//read logic</q-m>
-<a name="30"><q-n>     30  </q-n></a> <q-w>if</q-w>(!rstn) <q-w>begin</q-w>
-<a name="31"><q-n>     31  </q-n></a>  {w_ptr,r_ptr,data_out,full,empty}=8'b0000_0001;
-<a name="32"><q-n>     32  </q-n></a>  <q-w>for</q-w>(i=0;i&lt;DEP;i=i+1) <q-w>begin</q-w>
-<a name="33"><q-n>     33  </q-n></a>   fifo[i]&lt;=4'd0;
-<a name="34"><q-n>     34  </q-n></a>  <q-w>end</q-w>
-<a name="35"><q-n>     35  </q-n></a> <q-w>end</q-w>
-<a name="36"><q-n>     36  </q-n></a> <q-w>else</q-w> <q-w>begin</q-w>
-<a name="37"><q-n>     37  </q-n></a>	 <q-w>if</q-w> (r_en &amp;&amp; !empty) <q-w>begin</q-w>
-<a name="38"><q-n>     38  </q-n></a>	  data_out&lt;=fifo[r_ptr[DW-1:0]];
-<a name="39"><q-n>     39  </q-n></a>	  r_ptr&lt;=r_ptr+1'b1;
-<a name="40"><q-n>     40  </q-n></a>	 <q-w>end</q-w>
-<a name="41"><q-n>     41  </q-n></a> <q-w>end</q-w>
-<a name="42"><q-n>     42  </q-n></a><q-w>end</q-w>
-<a name="43"><q-n>     43  </q-n></a>
-<a name="44"><q-n>     44  </q-n></a><q-w>always</q-w>@(<q-a>posedge</q-w> wclk) <q-w>begin</q-w>:wr_handler  <q-m>//write syncronizer</q-m>
-<a name="45"><q-n>     45  </q-n></a>  <q-w>reg</q-w> [DW-1:0] temp,g_ptr,g1;
-<a name="46"><q-n>     46  </q-n></a>  gw_ptr&lt;=b2g(w_ptr);
-<a name="47"><q-n>     47  </q-n></a>  <q-m>//gr_ptr&lt;=b2g(r_ptr);</q-m>
-<a name="48"><q-n>     48  </q-n></a>  temp&lt;=gr_ptr;
-<a name="49"><q-n>     49  </q-n></a>  <q-m>//g_ptr&lt;=temp;</q-m>
-<a name="50"><q-n>     50  </q-n></a>  g_sycr&lt;=g2b(temp);
-<a name="51"><q-n>     51  </q-n></a>  <q-m>/*</q-m>
-<a name="52"><q-n>     52  </q-n></a><q-m>  if(g1[DW-1]!=w_ptr[DW-1] &amp;&amp; g1[DW-2:0]==w_ptr[DW-2:0]) begin</q-m>
-<a name="53"><q-n>     53  </q-n></a><q-m>   full&lt;=1'b1;</q-m>
-<a name="54"><q-n>     54  </q-n></a><q-m>  end</q-m>
-<a name="55"><q-n>     55  </q-n></a><q-m>  else full&lt;=1'b0;</q-m>
-<a name="56"><q-n>     56  </q-n></a><q-m>  if(w_ptr[DW-2:0]-g1[DW-2:0]==(DEP/2)-1) hfw&lt;=1'b1;</q-m>
-<a name="57"><q-n>     57  </q-n></a><q-m>  else hfw&lt;=1'b0;</q-m>
-<a name="58"><q-n>     58  </q-n></a><q-m>  */</q-m>
-<a name="59"><q-n>     59  </q-n></a><q-w>end</q-w>
-<a name="60"><q-n>     60  </q-n></a>
-<a name="61"><q-n>     61  </q-n></a><q-w>always</q-w>@(<q-a>posedge</q-w> rclk) <q-w>begin</q-w>:r_handler <q-m>//read syncronizer</q-m>
-<a name="62"><q-n>     62  </q-n></a>	<q-w>reg</q-w> [DW:0] temp,g_ptr,g1;
-<a name="63"><q-n>     63  </q-n></a>	gr_ptr&lt;=b2g(r_ptr);
-<a name="64"><q-n>     64  </q-n></a>	<q-m>//gw_ptr&lt;=b2g(w_ptr);</q-m>
-<a name="65"><q-n>     65  </q-n></a>	temp&lt;=gw_ptr;
-<a name="66"><q-n>     66  </q-n></a>	<q-m>//g_ptr&lt;=temp;</q-m>
-<a name="67"><q-n>     67  </q-n></a>        g_sycw&lt;=g2b(temp);
-<a name="68"><q-n>     68  </q-n></a>	<q-m>/*if (g1==r_ptr) begin</q-m>
-<a name="69"><q-n>     69  </q-n></a><q-m>	 empty&lt;=1'b1;</q-m>
-<a name="70"><q-n>     70  </q-n></a><q-m>	end</q-m>
-<a name="71"><q-n>     71  </q-n></a><q-m>	else empty&lt;=1'b0;</q-m>
-<a name="72"><q-n>     72  </q-n></a><q-m>        if(r_ptr[DW-2:0]-g1[DW-2:0]==(DEP/2)-1) hfr&lt;=1'b1;</q-m>
-<a name="73"><q-n>     73  </q-n></a><q-m>        else hfr&lt;=1'b0; */</q-m>
-<a name="74"><q-n>     74  </q-n></a>
-<a name="75"><q-n>     75  </q-n></a><q-w>end</q-w>
-<a name="76"><q-n>     76  </q-n></a>
-<a name="77"><q-n>     77  </q-n></a><q-w>always</q-w>@(r_ptr,g_sycw) <q-w>begin</q-w>  <q-m>//empty logic</q-m>
-<a name="78"><q-n>     78  </q-n></a>	<q-w>if</q-w>(r_ptr==g_sycw) <q-w>begin</q-w>
-<a name="79"><q-n>     79  </q-n></a>		empty=1'b1;
-<a name="80"><q-n>     80  </q-n></a>	<q-w>end</q-w>
-<a name="81"><q-n>     81  </q-n></a> <q-w>else</q-w> empty=1'b0;
-<a name="82"><q-n>     82  </q-n></a> <q-w>if</q-w>(r_ptr[DW-1:0]-g_sycw[DW-1:0]==(DEP/2)-1) hfw=1'b1;
-<a name="83"><q-n>     83  </q-n></a>  <q-w>else</q-w> hfw=1'b0;
-<a name="84"><q-n>     84  </q-n></a> <q-w>if</q-w>(r_ptr[DW-1:0]-g_sycw[DW-1:0]==2 &amp;&amp; !empty) ame=1'b1;
-<a name="85"><q-n>     85  </q-n></a>  <q-w>else</q-w> ame=1'b0;
-<a name="86"><q-n>     86  </q-n></a>
-<a name="87"><q-n>     87  </q-n></a><q-w>end</q-w>
-<a name="88"><q-n>     88  </q-n></a>
-<a name="89"><q-n>     89  </q-n></a><q-w>always</q-w>@(w_ptr,g_sycr) <q-w>begin</q-w>  <q-m>//full logic</q-m>
-<a name="90"><q-n>     90  </q-n></a> <q-w>if</q-w>(g_sycr[DW]!=w_ptr[DW] &amp;&amp; g_sycr[DW-1:0]==w_ptr[DW-1:0]) <q-w>begin</q-w>
-<a name="91"><q-n>     91  </q-n></a>   full=1'b1;
-<a name="92"><q-n>     92  </q-n></a>  <q-w>end</q-w>
-<a name="93"><q-n>     93  </q-n></a>  <q-w>else</q-w> full=1'b0;
-<a name="94"><q-n>     94  </q-n></a>  <q-w>if</q-w>(w_ptr[DW-1:0]-g_sycr[DW-1:0]==(DEP/2)-1) hfr=1'b1;
-<a name="95"><q-n>     95  </q-n></a>   <q-w>else</q-w> hfr=1'b0;
-<a name="96"><q-n>     96  </q-n></a>  <q-w>if</q-w>(w_ptr[DW-1:0]-g_sycr[DW-1:0]==2 &amp;&amp;!full) amf=1'b1;
-<a name="97"><q-n>     97  </q-n></a>  <q-w>else</q-w> amf=1'b0;
-<a name="98"><q-n>     98  </q-n></a><q-w>end</q-w>
-<a name="99"><q-n>     99  </q-n></a>
+<a name="12"><q-n>     12  </q-n></a><q-w>reg</q-w> [4:0] i;
+<a name="13"><q-n>     13  </q-n></a><q-w>reg</q-w> signed [2:0] j;
+<a name="14"><q-n>     14  </q-n></a><q-w>reg</q-w> hfw,hfr; <q-m>//internal half flag</q-m>
+<a name="15"><q-n>     15  </q-n></a><q-w>always</q-w>@(<q-a>posedge</q-w> wclk,<q-a>negedge</q-w> rstn) <q-w>begin</q-w>  <q-m>//write logicc</q-m>
+<a name="16"><q-n>     16  </q-n></a> <q-w>if</q-w>(!rstn) <q-w>begin</q-w>
+<a name="17"><q-n>     17  </q-n></a>  {w_ptr,r_ptr,data_out,full,empty}=8'b0000_0001;
+<a name="18"><q-n>     18  </q-n></a>  <q-w>for</q-w>(i=0;i&lt;DEP;i=i+1) <q-w>begin</q-w>
+<a name="19"><q-n>     19  </q-n></a>   fifo[i]&lt;=4'd0;
+<a name="20"><q-n>     20  </q-n></a>  <q-w>end</q-w>
+<a name="21"><q-n>     21  </q-n></a> <q-w>end</q-w>
+<a name="22"><q-n>     22  </q-n></a> <q-w>else</q-w> <q-w>begin</q-w>
+<a name="23"><q-n>     23  </q-n></a>  <q-w>if</q-w>(w_en &amp;&amp; !full) <q-w>begin</q-w>
+<a name="24"><q-n>     24  </q-n></a>    fifo[w_ptr[DW-1:0]]&lt;=data_in;
+<a name="25"><q-n>     25  </q-n></a>    w_ptr&lt;=w_ptr+1'b1;  
+<a name="26"><q-n>     26  </q-n></a>  <q-w>end</q-w>
+<a name="27"><q-n>     27  </q-n></a> <q-w>end</q-w>
+<a name="28"><q-n>     28  </q-n></a><q-w>end</q-w>
+<a name="29"><q-n>     29  </q-n></a>
+<a name="30"><q-n>     30  </q-n></a><q-w>always</q-w>@(<q-a>posedge</q-w> rclk,<q-a>negedge</q-w> rstn) <q-w>begin</q-w> <q-m>//read logic</q-m>
+<a name="31"><q-n>     31  </q-n></a> <q-w>if</q-w>(!rstn) <q-w>begin</q-w>
+<a name="32"><q-n>     32  </q-n></a>  {w_ptr,r_ptr,data_out,full,empty}=8'b0000_0001;
+<a name="33"><q-n>     33  </q-n></a>  <q-w>for</q-w>(i=0;i&lt;DEP;i=i+1) <q-w>begin</q-w>
+<a name="34"><q-n>     34  </q-n></a>   fifo[i]&lt;=4'd0;
+<a name="35"><q-n>     35  </q-n></a>  <q-w>end</q-w>
+<a name="36"><q-n>     36  </q-n></a> <q-w>end</q-w>
+<a name="37"><q-n>     37  </q-n></a> <q-w>else</q-w> <q-w>begin</q-w>
+<a name="38"><q-n>     38  </q-n></a>	 <q-w>if</q-w> (r_en &amp;&amp; !empty) <q-w>begin</q-w>
+<a name="39"><q-n>     39  </q-n></a>	  data_out&lt;=fifo[r_ptr[DW-1:0]];
+<a name="40"><q-n>     40  </q-n></a>	  r_ptr&lt;=r_ptr+1'b1;
+<a name="41"><q-n>     41  </q-n></a>	 <q-w>end</q-w>
+<a name="42"><q-n>     42  </q-n></a> <q-w>end</q-w>
+<a name="43"><q-n>     43  </q-n></a><q-w>end</q-w>
+<a name="44"><q-n>     44  </q-n></a>
+<a name="45"><q-n>     45  </q-n></a><q-w>always</q-w>@(<q-a>posedge</q-w> wclk) <q-w>begin</q-w>:wr_handler  <q-m>//write syncronizer</q-m>
+<a name="46"><q-n>     46  </q-n></a>  <q-w>reg</q-w> [DW-1:0] temp,g_ptr,g1;
+<a name="47"><q-n>     47  </q-n></a>  gw_ptr&lt;=b2g(w_ptr);
+<a name="48"><q-n>     48  </q-n></a>  <q-m>//gr_ptr&lt;=b2g(r_ptr);</q-m>
+<a name="49"><q-n>     49  </q-n></a>  temp&lt;=gr_ptr;
+<a name="50"><q-n>     50  </q-n></a>  <q-m>//g_ptr&lt;=temp;</q-m>
+<a name="51"><q-n>     51  </q-n></a>  g_sycr&lt;=g2b(temp);
+<a name="52"><q-n>     52  </q-n></a>  <q-m>/*</q-m>
+<a name="53"><q-n>     53  </q-n></a><q-m>  if(g1[DW-1]!=w_ptr[DW-1] &amp;&amp; g1[DW-2:0]==w_ptr[DW-2:0]) begin</q-m>
+<a name="54"><q-n>     54  </q-n></a><q-m>   full&lt;=1'b1;</q-m>
+<a name="55"><q-n>     55  </q-n></a><q-m>  end</q-m>
+<a name="56"><q-n>     56  </q-n></a><q-m>  else full&lt;=1'b0;</q-m>
+<a name="57"><q-n>     57  </q-n></a><q-m>  if(w_ptr[DW-2:0]-g1[DW-2:0]==(DEP/2)-1) hfw&lt;=1'b1;</q-m>
+<a name="58"><q-n>     58  </q-n></a><q-m>  else hfw&lt;=1'b0;</q-m>
+<a name="59"><q-n>     59  </q-n></a><q-m>  */</q-m>
+<a name="60"><q-n>     60  </q-n></a><q-w>end</q-w>
+<a name="61"><q-n>     61  </q-n></a>
+<a name="62"><q-n>     62  </q-n></a><q-w>always</q-w>@(<q-a>posedge</q-w> rclk) <q-w>begin</q-w>:r_handler <q-m>//read syncronizer</q-m>
+<a name="63"><q-n>     63  </q-n></a>	<q-w>reg</q-w> [DW:0] temp,g_ptr,g1;
+<a name="64"><q-n>     64  </q-n></a>	gr_ptr&lt;=b2g(r_ptr);
+<a name="65"><q-n>     65  </q-n></a>	<q-m>//gw_ptr&lt;=b2g(w_ptr);</q-m>
+<a name="66"><q-n>     66  </q-n></a>	temp&lt;=gw_ptr;
+<a name="67"><q-n>     67  </q-n></a>	<q-m>//g_ptr&lt;=temp;</q-m>
+<a name="68"><q-n>     68  </q-n></a>        g_sycw&lt;=g2b(temp);
+<a name="69"><q-n>     69  </q-n></a>	<q-m>/*if (g1==r_ptr) begin</q-m>
+<a name="70"><q-n>     70  </q-n></a><q-m>	 empty&lt;=1'b1;</q-m>
+<a name="71"><q-n>     71  </q-n></a><q-m>	end</q-m>
+<a name="72"><q-n>     72  </q-n></a><q-m>	else empty&lt;=1'b0;</q-m>
+<a name="73"><q-n>     73  </q-n></a><q-m>        if(r_ptr[DW-2:0]-g1[DW-2:0]==(DEP/2)-1) hfr&lt;=1'b1;</q-m>
+<a name="74"><q-n>     74  </q-n></a><q-m>        else hfr&lt;=1'b0; */</q-m>
+<a name="75"><q-n>     75  </q-n></a>
+<a name="76"><q-n>     76  </q-n></a><q-w>end</q-w>
+<a name="77"><q-n>     77  </q-n></a>
+<a name="78"><q-n>     78  </q-n></a><q-w>always</q-w>@(r_ptr,g_sycw) <q-w>begin</q-w>  <q-m>//empty logic</q-m>
+<a name="79"><q-n>     79  </q-n></a>	<q-w>if</q-w>(r_ptr==g_sycw) <q-w>begin</q-w>
+<a name="80"><q-n>     80  </q-n></a>		empty=1'b1;
+<a name="81"><q-n>     81  </q-n></a>	<q-w>end</q-w>
+<a name="82"><q-n>     82  </q-n></a> <q-w>else</q-w> empty=1'b0;
+<a name="83"><q-n>     83  </q-n></a> <q-w>if</q-w>(r_ptr[DW-1:0]-g_sycw[DW-1:0]==(DEP/2)-1) hfw=1'b1;
+<a name="84"><q-n>     84  </q-n></a>  <q-w>else</q-w> hfw=1'b0;
+<a name="85"><q-n>     85  </q-n></a> <q-w>if</q-w>(r_ptr[DW-1:0]-g_sycw[DW-1:0]==2 &amp;&amp; !empty) ame=1'b1;
+<a name="86"><q-n>     86  </q-n></a>  <q-w>else</q-w> ame=1'b0;
+<a name="87"><q-n>     87  </q-n></a>
+<a name="88"><q-n>     88  </q-n></a><q-w>end</q-w>
+<a name="89"><q-n>     89  </q-n></a>
+<a name="90"><q-n>     90  </q-n></a><q-w>always</q-w>@(w_ptr,g_sycr) <q-w>begin</q-w>  <q-m>//full logic</q-m>
+<a name="91"><q-n>     91  </q-n></a> <q-w>if</q-w>(g_sycr[DW]!=w_ptr[DW] &amp;&amp; g_sycr[DW-1:0]==w_ptr[DW-1:0]) <q-w>begin</q-w>
+<a name="92"><q-n>     92  </q-n></a>   full=1'b1;
+<a name="93"><q-n>     93  </q-n></a>  <q-w>end</q-w>
+<a name="94"><q-n>     94  </q-n></a>  <q-w>else</q-w> full=1'b0;
+<a name="95"><q-n>     95  </q-n></a>  <q-w>if</q-w>(w_ptr[DW-1:0]-g_sycr[DW-1:0]==(DEP/2)-1) hfr=1'b1;
+<a name="96"><q-n>     96  </q-n></a>   <q-w>else</q-w> hfr=1'b0;
+<a name="97"><q-n>     97  </q-n></a>  <q-w>if</q-w>(w_ptr[DW-1:0]-g_sycr[DW-1:0]==2 &amp;&amp; !full) amf=1'b1;
+<a name="98"><q-n>     98  </q-n></a>  <q-w>else</q-w> amf=1'b0;
+<a name="99"><q-n>     99  </q-n></a><q-w>end</q-w>
 <a name="100"><q-n>     100  </q-n></a>
-<a name="101"><q-n>     101  </q-n></a><q-w>function</q-w> [DW:0] g2b(<q-w>input</q-w> [DW:0] b);
-<a name="102"><q-n>     102  </q-n></a>	<q-w>begin</q-w>
-<a name="103"><q-n>     103  </q-n></a>	  g2b[DW]=b[DW];
-<a name="104"><q-n>     104  </q-n></a>	 <q-m>//b2g[2]=b[2]^b2g[3];</q-m>
-<a name="105"><q-n>     105  </q-n></a>	 <q-m>//b2g[1]=b[1]^b2g[2];</q-m>
-<a name="106"><q-n>     106  </q-n></a>	 <q-m>//b2g[0]=b[0]^b2g[1];</q-m>
-<a name="107"><q-n>     107  </q-n></a>	  
-<a name="108"><q-n>     108  </q-n></a>	  <q-w>for</q-w> (j=DW-1;j&gt;=0;j=j-1) <q-w>begin</q-w>
-<a name="109"><q-n>     109  </q-n></a>	   g2b[j]=b[j]^g2b[j+1];
-<a name="110"><q-n>     110  </q-n></a>	  <q-w>end</q-w>
-<a name="111"><q-n>     111  </q-n></a>	<q-w>end</q-w>
-<a name="112"><q-n>     112  </q-n></a><q-w>endfunction</q-w>
-<a name="113"><q-n>     113  </q-n></a>
-<a name="114"><q-n>     114  </q-n></a><q-w>function</q-w> [DW:0] b2g (<q-w>input</q-w> [DW:0] g);
-<a name="115"><q-n>     115  </q-n></a>	<q-w>begin</q-w>
-<a name="116"><q-n>     116  </q-n></a>	 b2g[DW]=g[DW];
-<a name="117"><q-n>     117  </q-n></a>          <q-m>//g2b[2]=g[2]^g[3];</q-m>
-<a name="118"><q-n>     118  </q-n></a>	  <q-m>//g2b[1]=g[1]^g[2];</q-m>
-<a name="119"><q-n>     119  </q-n></a>	  <q-m>//g2b[0]=g[0]^g[1];</q-m>
-<a name="120"><q-n>     120  </q-n></a>	 <q-w>for</q-w>(j=DW-1;j&gt;=0;j=j-1) <q-w>begin</q-w>
-<a name="121"><q-n>     121  </q-n></a>	  b2g[j]=g[j]^g[j+1];
-<a name="122"><q-n>     122  </q-n></a>	 <q-w>end</q-w>
-<a name="123"><q-n>     123  </q-n></a>	<q-w>end</q-w>
-<a name="124"><q-n>     124  </q-n></a><q-w>endfunction</q-w>
-<a name="125"><q-n>     125  </q-n></a><q-w>assign</q-w> hf=(hfw|hfr)?     1'b1:1'b0;
-<a name="126"><q-n>     126  </q-n></a><q-w>assign</q-w> of=(w_en&amp;&amp;full)?  1'b1:1'b0;
-<a name="127"><q-n>     127  </q-n></a><q-w>assign</q-w> uf=(r_en&amp;&amp;empty)? 1'b1:1'b0;
-<a name="128"><q-n>     128  </q-n></a><q-w>endmodule</q-w>
+<a name="101"><q-n>     101  </q-n></a>
+<a name="102"><q-n>     102  </q-n></a><q-w>function</q-w> [DW:0] g2b(<q-w>input</q-w> [DW:0] b);
+<a name="103"><q-n>     103  </q-n></a>	<q-w>begin</q-w>
+<a name="104"><q-n>     104  </q-n></a>	  g2b[DW]=b[DW];
+<a name="105"><q-n>     105  </q-n></a>	 <q-m>//b2g[2]=b[2]^b2g[3];</q-m>
+<a name="106"><q-n>     106  </q-n></a>	 <q-m>//b2g[1]=b[1]^b2g[2];</q-m>
+<a name="107"><q-n>     107  </q-n></a>	 <q-m>//b2g[0]=b[0]^b2g[1];</q-m>
+<a name="108"><q-n>     108  </q-n></a>	  
+<a name="109"><q-n>     109  </q-n></a>	  <q-w>for</q-w> (j=DW-1;j&gt;=0;j=j-1) <q-w>begin</q-w>
+<a name="110"><q-n>     110  </q-n></a>	   g2b[j]=b[j]^g2b[j+1];
+<a name="111"><q-n>     111  </q-n></a>	  <q-w>end</q-w>
+<a name="112"><q-n>     112  </q-n></a>	<q-w>end</q-w>
+<a name="113"><q-n>     113  </q-n></a><q-w>endfunction</q-w>
+<a name="114"><q-n>     114  </q-n></a>
+<a name="115"><q-n>     115  </q-n></a><q-w>function</q-w> [DW:0] b2g (<q-w>input</q-w> [DW:0] g);
+<a name="116"><q-n>     116  </q-n></a>	<q-w>begin</q-w>
+<a name="117"><q-n>     117  </q-n></a>	 b2g[DW]=g[DW];
+<a name="118"><q-n>     118  </q-n></a>          <q-m>//g2b[2]=g[2]^g[3];</q-m>
+<a name="119"><q-n>     119  </q-n></a>	  <q-m>//g2b[1]=g[1]^g[2];</q-m>
+<a name="120"><q-n>     120  </q-n></a>	  <q-m>//g2b[0]=g[0]^g[1];</q-m>
+<a name="121"><q-n>     121  </q-n></a>	 <q-w>for</q-w>(j=DW-1;j&gt;=0;j=j-1) <q-w>begin</q-w>
+<a name="122"><q-n>     122  </q-n></a>	  b2g[j]=g[j]^g[j+1];
+<a name="123"><q-n>     123  </q-n></a>	 <q-w>end</q-w>
+<a name="124"><q-n>     124  </q-n></a>	<q-w>end</q-w>
+<a name="125"><q-n>     125  </q-n></a><q-w>endfunction</q-w>
+<a name="126"><q-n>     126  </q-n></a><q-w>assign</q-w> hf=(hfw|hfr)?     1'b1:1'b0;
+<a name="127"><q-n>     127  </q-n></a><q-w>assign</q-w> of=(w_en&amp;&amp;full)?  1'b1:1'b0;
+<a name="128"><q-n>     128  </q-n></a><q-w>assign</q-w> uf=(r_en&amp;&amp;empty)? 1'b1:1'b0;
+<a name="129"><q-n>     129  </q-n></a><q-w>endmodule</q-w>
 </pre>
 </tt>
 

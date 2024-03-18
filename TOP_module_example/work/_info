@@ -1,0 +1,71 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/indicus_material/verilog_at_indicus/TOP_module_example
+vha_tb
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 NlRe>?U>0oC9K>1[K@eR:0
+I8`CL`]fHiE1g>?9FGj0k82
+R0
+w1710763712
+8HAtb.v
+FHAtb.v
+L0 2
+Z2 OL;L;10.7c;67
+31
+Z3 !s108 1710763808.000000
+Z4 !s107 HAtb.v|halfadderbehave.v|top.v|
+Z5 !s90 -reportprogress|300|top.v|halfadderbehave.v|HAtb.v|
+!i113 0
+Z6 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 tCvgOpt 0
+vHF
+R1
+r1
+!s85 0
+!i10b 1
+!s100 nC5m0`6bV_C]j3ANk9YVX2
+IJ3_1R:f2cBY?L:RK=^0nX1
+R0
+w1710763803
+8halfadderbehave.v
+Fhalfadderbehave.v
+L0 1
+R2
+31
+R3
+R4
+R5
+!i113 0
+R6
+R7
+n@h@f
+vtop
+R1
+r1
+!s85 0
+!i10b 1
+!s100 _U_XSQgOb:ghG>WCkX2@Z2
+I_;29Alj<n>b:YSF1l1`kB3
+R0
+w1710763782
+8top.v
+Ftop.v
+L0 1
+R2
+31
+R3
+R4
+R5
+!i113 0
+R6
+R7

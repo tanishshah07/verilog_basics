@@ -9,24 +9,26 @@ wire          full,empty,hf,amf,ame,of,uf;
 integer i;
 //-----------------------------------------
 reg [DW-1:0] sfifo [0:DEP-1];
-reg [DW:0] w_ptrs,r_ptrs;
+reg [DW-1:0] w_ptrs,r_ptrs,gw_ptrs,gr_ptrs;
+reg [DW-1:0] sdout;
+reg          fulls,emptys,amfs,ames;
 async_fifo dut(.wclk(wclk),.rclk(rclk),.rstn(rstn),.w_en(w_en),.r_en(r_en),.data_in(data_in),.data_out(data_out),.full(full),.empty(empty),.hf(hf),.ame(ame),.amf(amf),.uf(uf),.of(of));
 
 
 //------------------mimicing_the_design--------------------------
-/* 
+ 
 initial begin
  forever @(posedge wclk,negedge rstn) begin
 	if(!rstn)begin
-	  {w_ptrs,r_ptrs,data_out,full,empty}=8'b0000_0001;
+	  {w_ptrs,r_ptrs,sdout}='d0;
           for(i=0;i<DEP;i=i+1) begin
             sfifo[i]<=4'd0;
           end
         end
   else begin
-	  gw_ptrs<={w_ptrs[DW],w_ptrs[DW-1:1]^w_ptrs[DW-1:0]};
+	  //gw_ptrs<={w_ptrs[DW],w_ptrs[DW-1:1]^w_ptrs[DW-1:0]};
 	  if (w_en && !full) begin
-	   sfifo[gw_ptrs[DW-1:0]]<=data_in;
+	   sfifo[w_ptrs[DW-1:0]]<=data_in;
 	   w_ptrs<=w_ptrs+1'b1;
 	  end
   end 
@@ -35,24 +37,105 @@ end
 
 initial begin
  forever@(posedge rclk,negedge rstn) begin
-  if (!rstn)
- 
- 
+	 if (!rstn) begin
+	   {w_ptrs,r_ptrs,sdout}='d0;
+           for(i=0;i<DEP;i=i+1) begin
+             sfifo[i]<=4'd0;
+           end
+         end
+	 else begin
+	  //gr_ptrs<={r_ptrs[DW],r_ptrs[DW-1:1]^r_ptrs[DW-1:0]};
+	  if(r_en && !empty) begin
+	    sdout<=sfifo[r_ptrs[DW-1:0]];
+	    r_ptrs<=r_ptrs+1'b1;
+	  end
+	 end
  end
-end*/
-//--------------------------------------------------------------
+end
+
+initial begin
+ forever @(r_ptrs,w_ptrs) begin
+   //      @(negedge rclk);
+	 if({r_ptrs-w_ptrs}==0) begin
+	  emptys=1'b1;
+	 end
+	 else emptys=1'b0;
+ end
+end
+
+initial begin
+ forever@(r_ptrs,w_ptrs) begin
+ @(negedge wclk);
+  if(w_ptrs-r_ptrs==DEP-1) fulls=1'b1;
+  else fulls=1'b0;
+ end
+end
+
+initial begin
+ forever@(r_ptrs,w_ptrs) begin
+ @(negedge wclk);
+  if(w_ptrs-r_ptrs==13) amfs=1'b1;
+  else amfs=1'b0;
+ end
+end
+
+initial begin
+ forever@(r_ptrs,w_ptrs) begin
+  if(r_ptrs-w_ptrs==13) ames=1'b1;
+  else ames=1'b0;
+ end
+end
+
+
+//---------------------------CHECKER------------------------------------------
+initial begin
+	forever @(sdout,data_out) begin
+	 if(sdout==data_out) $display("DATA OUT TEST is PASSED!! @ %t",$time);
+	 else $display("DATA OUT TEST IS FAILED @ %t",$time);
+	end
+end
+initial begin
+ forever @(emptys,empty) begin
+   if(emptys && empty) $display("EMPTY is PASSED!! @ %t",$time);
+   else $display("EMPTY IS FAILED @ %t",$time);
+ end
+end
+initial begin
+ forever @(fulls,full) begin
+   if(fulls && full) $display("FULL is PASSED!! @ %t",$time);
+   else $display("FULL IS FAILED @ %t",$time);
+ end
+end
+initial begin
+ forever @(amfs,amf) begin
+   if(amfs && amf) $display("almost FULL is PASSED!! @ %t",$time);
+   else $display("almost FULL IS FAILED @ %t",$time);
+ end
+end
+initial begin
+ forever @(ames,ame) begin
+   if(ames && ame) $display("almost EMPTY is PASSED!! @ %t",$time);
+   else $display("almost EMPTY IS FAILED @ %t",$time);
+ end
+end
+
+ //------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------
 
 initial forever #5 wclk=~wclk;
 initial forever #10 rclk=~rclk;
 
 initial begin
-wclk=1'b1;
-rclk=1'b1;
+wclk=1'b0;
+rclk=1'b0;
 if($test$plusargs("sanity_test")) begin
  reset();
  dinR(16);
  data_read(16);
- repeat (10) @(negedge wclk);
+ dinR(10);
+ repeat (8) @(negedge rclk);
 end
 
 if($test$plusargs("mix_test")) begin
@@ -72,11 +155,22 @@ if($test$plusargs("simul_r_w")) begin
   data_read(16);
  join
  repeat(10) @(negedge wclk);
-
 end
+if($test$plusargs("reset_on_fly")) begin
+ reset();
+ dinRR(16);
+ data_read(3);
+ repeat(10) @(negedge wclk);
+end
+if($test$plusargs("over_under")) begin
+ reset();
+ dinR(18);
+ data_read(18);
+end
+
 $finish;
 end
-
+//-------------------------------------------------------------
 task reset();
 begin
  rstn=1'b0;
@@ -97,12 +191,25 @@ task dinR(input integer in);
    w_en=1'b0;
  end
 endtask
+task dinRR(input integer in);
+ begin
+   for(i=0;i<in;i=i+1) begin
+   @(negedge wclk);
+   w_en=1'b1;
+   if(i==7) reset();
+   else data_in={$random}%256;
+   end
+   @(negedge wclk);
+   w_en=1'b0;
+ end
+endtask
 
 task data_read(input integer n);
 	begin
 	   @(negedge rclk);
 	   r_en=1'b1;
            repeat(n) @(negedge rclk);
+           @(negedge rclk); //for driving r enable at negedge to wrap around it
 	   r_en=1'b0;
 	end
 endtask
