@@ -81,7 +81,7 @@ end
 
 initial begin
  forever@(r_ptrs,w_ptrs) begin
-  if(r_ptrs-wr_ptrs==13) ames=1'b1;
+  if(r_ptrs-w_ptrs==13) ames=1'b1;
   else ames=1'b0;
  end
 end
@@ -168,6 +168,56 @@ if($test$plusargs("over_under")) begin
  data_read(18);
 end
 
+if($test$plusargs("half_test")) begin
+ reset();
+ dinR(16);
+ data_read(16);
+ dinR(8);
+ data_read(8);
+ dinR(8);
+ data_read(8);
+end
+
+if($test$plusargs("full_check")) begin
+ reset();
+ dinR(16);
+ data_read(8);
+ dinR(8);
+end
+
+if($test$plusargs("b2b")) begin
+ reset();
+ for(i=0;i<15;i=i+1) begin
+  dinR(2);
+  data_read(1);
+ end
+end
+
+if($test$plusargs("b2b_2")) begin
+ reset();
+ for(i=0;i<15;i=i+1) begin
+  dinR(1);
+  data_read(1);
+ end
+end
+
+if($test$plusargs("amf"))begin
+ reset();
+ dinR(13);
+ fork
+    dinR(2);
+    data_read(2);
+ join
+end
+
+if($test$plusargs("amf_b2b")) begin
+ reset();
+ dinR(13);
+ for(i=0;i<5;i=i+1) begin
+  dinR(1);
+  data_read(1);
+ end
+end
 $finish;
 end
 //-------------------------------------------------------------

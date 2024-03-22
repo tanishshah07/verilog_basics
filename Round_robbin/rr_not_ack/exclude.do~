@@ -1,0 +1,2 @@
+
+coverage exclude -srcfile rr.v -linerange 68-70 117-119 167-169 217-219   

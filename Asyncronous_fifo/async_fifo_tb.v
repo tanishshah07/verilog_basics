@@ -6,7 +6,7 @@ reg           wclk,rclk,rstn,w_en,r_en;
 reg  [DW-1:0] data_in;
 wire [DW-1:0] data_out;
 wire          full,empty,hf,amf,ame,of,uf;
-integer i;
+integer i,j;
 //-----------------------------------------
 reg [DW-1:0] sfifo [0:DEP-1];
 reg [DW-1:0] w_ptrs,r_ptrs,gw_ptrs,gr_ptrs;
@@ -168,6 +168,56 @@ if($test$plusargs("over_under")) begin
  data_read(18);
 end
 
+if($test$plusargs("half_test")) begin
+ reset();
+ dinR(16);
+ data_read(16);
+ dinR(8);
+ data_read(8);
+ dinR(8);
+ data_read(8);
+end
+
+if($test$plusargs("full_check")) begin
+ reset();
+ dinR(16);
+ data_read(8);
+ dinR(8);
+end
+
+if($test$plusargs("b2b")) begin
+ reset();
+ for(j=0;j<15;j=j+1) begin
+  dinR(2);
+  data_read(1);
+ end
+end
+
+if($test$plusargs("b2b_2")) begin
+ reset();
+ for(j=0;j<15;j=j+1) begin
+  dinR(1);
+  data_read(1);
+ end
+end
+
+if($test$plusargs("amf"))begin
+ reset();
+ dinR(13);
+ fork
+    dinR(2);
+    data_read(2);
+ join
+end
+
+if($test$plusargs("amf_b2b")) begin
+ reset();
+ dinR(13);
+ for(j=0;j<5;j=j+1) begin
+  dinR(1);
+  data_read(1);
+ end
+end
 $finish;
 end
 //-------------------------------------------------------------

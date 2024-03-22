@@ -1,0 +1,14 @@
+-html
+-htmldir
+E:/indicus_material/verilog_at_indicus/Round_robbin/rr_not_ack/SIM
+-source
+-details
+-assert
+-directive
+-cvg
+-code
+bcefst
+-threshL
+50
+-threshH
+90

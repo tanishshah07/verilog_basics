@@ -1,0 +1,63 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/indicus_material/verilog_at_indicus/Round_robbin
+T_opt
+!s110 1710847599
+VIF@WFn=;S8kdZ1on4ZFDb0
+04 5 4 work rr_tb fast 0
+=1-c85b76258d3a-65f9766f-223-c44
+o-quiet -auto_acc_if_foreign -work work -suppress 12110
+Z1 tCvgOpt 0
+n@_opt
+OL;O;10.7c;67
+vround_robin
+Z2 !s110 1710847591
+!i10b 1
+!s100 NJ[`S8aHRgfTRFI6Zlf9V1
+IT@]NC[bXBoHOma@m1ze8=2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1710831897
+8rr.v
+Frr.v
+L0 1
+Z4 OL;L;10.7c;67
+r1
+!s85 0
+31
+Z5 !s108 1710847591.000000
+Z6 !s107 rr_tb.v|rr.v|
+Z7 !s90 -reportprogress|300|-coveropt|3|+acc|+cover|rr.v|rr_tb.v|
+!i113 0
+Z8 !s102 -coveropt 3 +cover
+Z9 o-coveropt 3 +acc +cover -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vrr_tb
+R2
+!i10b 1
+!s100 zMzRI7>@gFhDJ86n=iY1D3
+I9c<z1jE41m?ObdHXY3g[m1
+R3
+R0
+w1710847585
+8rr_tb.v
+Frr_tb.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 0
+R8
+R9
+R1

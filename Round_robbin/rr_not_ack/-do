@@ -1,0 +1,12 @@
+# ** Warning: (vsim-12019) Incorrectly (or incompletely) specified option '-l': (Argument '-do' appears to be a simulator switch).
+# vsim -vopt -coverage rr_tb -suppress 12110 "+priority" "+S0" "+S1" "+S2" "+S3" "+reset_on_fly" -c -l -do "coverage save -onexit -directive -cvg -codeall round.ucdb; exit" 
+# Start time: 17:15:11 on Mar 20,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): (vopt-19) Failed to access library 'work.coverage save -onexit -directive -cvg -codeall round' at "work.coverage save -onexit -directive -cvg -codeall round".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vopt-19) Failed to access library 'work.coverage save -onexit -directive -cvg -codeall round' at "work.coverage save -onexit -directive -cvg -codeall round".
+# Result too large. (errno = ERANGE)
+# Optimization failed
+# Error loading design
+# End time: 17:15:12 on Mar 20,2024, Elapsed time: 0:00:01
+# Errors: 2, Warnings: 1
